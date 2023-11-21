@@ -1,3 +1,8 @@
+import Person.Person;
+import Ticket.Ticket;
+import database.Person_database;
+import database.Ticket_database;
+
 public class Main
 {
     public static void main(String[] args)
@@ -13,7 +18,7 @@ public class Main
 
     public void run()
     {
-        Person_database personDB = new Person_database();
+        Person_database personDB = Person_database.getInstance();
 
         Person person1 = new Person("Eliott");
         Person person2 = new Person("Eliott");
@@ -25,7 +30,7 @@ public class Main
         personDB.addPerson(person3);
         personDB.addPerson(person4);
 
-        Ticket_database ticketDB = new Ticket_database();
+        Ticket_database ticketDB = Ticket_database.getInstance();
 
         Ticket ticket1 = new Ticket("McDonalds", 45.2, "Food & Drinks");
         Ticket ticket2 = new Ticket("McDonalds", 45.2, "Food & Drinks");
