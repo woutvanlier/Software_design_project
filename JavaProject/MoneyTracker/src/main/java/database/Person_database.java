@@ -40,12 +40,10 @@ public class Person_database extends Database
     // Searches for the person by name and returns null if not found
     private Person findInDatabase(String name)
     {
-        for(int i = 0; i<db.size(); i++)
+        for (Person person : db)
         {
-            if(name == db.get(i).getFullName())
-            {
-                return db.get(i);
-            }
+            if (name == person.getFullName())
+                return person;
         }
         return null;
     }
