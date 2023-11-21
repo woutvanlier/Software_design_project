@@ -7,7 +7,6 @@ import java.util.List;
 
 public class Ticket_database extends Database
 {
-
     private static Ticket_database singletonDB;
     private final List<Ticket> db;
     
@@ -25,7 +24,6 @@ public class Ticket_database extends Database
         return singletonDB;
     }
 
-
     public void addTicket(Ticket ticket)
     {
         db.add(ticket);
@@ -39,12 +37,10 @@ public class Ticket_database extends Database
     // Searches for the ticket by name and returns null if not found
     private Ticket findInDatabase(String name)
     {
-        for(int i=0; i<db.size(); i++)
+        for (Ticket ticket : db)
         {
-            if(name == db.get(i).getName())
-            {
-                return db.get(i);
-            }
+            if (name == ticket.getName())
+                return ticket;
         }
         return null;
     }
