@@ -30,6 +30,8 @@ public class Main
         personDB.addPerson(person3);
         personDB.addPerson(person4);
 
+        System.out.println(personDB);
+
         Ticket_database ticketDB = Ticket_database.getInstance();
 
         Ticket ticket1 = new Ticket("McDonalds", 45.2, "Food & Drinks");
@@ -41,5 +43,7 @@ public class Main
         ticketDB.addTicket(ticket2);
         ticketDB.addTicket(ticket3);
         ticketDB.addTicket(ticket4);
+
+        System.out.println(ticketDB);
     }
 }
