@@ -2,6 +2,6 @@ package Ticket;
 
 public interface Asbtract_ticket {
     
-    void showOwed(String name);
+    public void showOwed(String name);
 
 }

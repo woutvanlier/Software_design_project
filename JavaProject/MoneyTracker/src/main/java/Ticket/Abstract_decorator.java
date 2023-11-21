@@ -1,11 +1,11 @@
 package Ticket;
 
-public class Abstract_decorator extends Abstract_ticket
 
-{
-    private Abstract_Ticket abstractTicket;
-    
+public abstract class Abstract_decorator implements Asbtract_ticket {
+
     // standard constructors
     @Override
-    void showOwed(String name);
+    public void showOwed(String name){
+        return ;
+    };
 }
