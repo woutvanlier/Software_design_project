@@ -1,5 +1,10 @@
 package database;
 
+import Ticket.Ticket;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Ticket_database extends Database
 {
 
@@ -8,7 +13,7 @@ public class Ticket_database extends Database
     
     private Ticket_database()
     {
-        db = new List<Ticket>();
+        db = new ArrayList<Ticket>();
     }
 
     // Singleton Constructor
@@ -17,7 +22,7 @@ public class Ticket_database extends Database
         if(singletonDB == null)
             singletonDB = new Ticket_database();
 
-        return signletonDB;
+        return singletonDB;
     }
 
 
@@ -26,7 +31,7 @@ public class Ticket_database extends Database
         db.add(ticket);
     }
     
-    public void getTicket(String name)
+    public Ticket getTicket(String name)
     {
         return findInDatabase(name);
     }
@@ -34,11 +39,11 @@ public class Ticket_database extends Database
     // Searches for the ticket by name and returns null if not found
     private Ticket findInDatabase(String name)
     {
-        for(int i; i<db.size(); i++)
+        for(int i=0; i<db.size(); i++)
         {
-            if(name == db(i).getName())
+            if(name == db.get(i).getName())
             {
-                return db(i);
+                return db.get(i);
             }
         }
         return null;
