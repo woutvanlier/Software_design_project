@@ -1,11 +1,15 @@
 package Ticket;
 
-public class Abstract_decorator extends Abstract_ticket
-
+public abstract class Abstract_decorator implements Abstract_ticket
 {
-    private Abstract_Ticket abstractTicket;
-    
-    // standard constructors
+    private Abstract_ticket ticket;
+
+    public Abstract_decorator(Abstract_ticket ticket) {
+        this.ticket = ticket;
+    }
+    public abstract void showOwed(String name);
     @Override
-    void showOwed(String name);
+    public void SplitDecorate(){
+        ticket.SplitDecorate();
+    }
 }

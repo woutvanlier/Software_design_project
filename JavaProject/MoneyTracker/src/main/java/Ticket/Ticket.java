@@ -1,6 +1,6 @@
 package Ticket;
 
-public class Ticket implements Asbtract_ticket{
+public class Ticket implements Abstract_ticket {
     enum TicketType
     {
         Airplane,
@@ -47,5 +47,14 @@ public class Ticket implements Asbtract_ticket{
         this.price = price;
     }
 
-    public abstract void showOwed(String name);
+    @Override
+    public void showOwed(String name) {
+
+    }
+
+    @Override
+    public void setSplitDecorator(String split) {
+
+    }
+
 }
