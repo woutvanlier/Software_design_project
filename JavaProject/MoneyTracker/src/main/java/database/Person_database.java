@@ -43,10 +43,7 @@ public class Person_database extends Database
     }
 
 
-    public Person getPerson(String name)
-    {
-        return findInDatabase(name);
-    }
+    public Person getPerson(String name) { return findInDatabase(name); }
 
     public void changeFullName(String oldName, String newName)
     {

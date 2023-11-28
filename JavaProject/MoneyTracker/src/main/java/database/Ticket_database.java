@@ -33,6 +33,12 @@ public class Ticket_database extends Database
     {
         return findInDatabase(name);
     }
+    
+    public void changeNameOnTicket(String oldname,String newname, Person_database personDatabase)
+    {
+        personDatabase.changeFullName(oldname,newname);
+
+    }
 
     // Searches for the ticket by name and returns null if not found
     private Ticket findInDatabase(String name)
@@ -40,6 +46,7 @@ public class Ticket_database extends Database
         for (Ticket ticket : db)
         {
             if (name == ticket.getName())
+                ticket.setName(name);
                 return ticket;
         }
         return null;
