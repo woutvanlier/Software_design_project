@@ -1,4 +1,3 @@
-
 package Person;
 
 public class PersonFactory {
@@ -6,3 +5,4 @@ public class PersonFactory {
         return new Person(name);
     }
 }
+

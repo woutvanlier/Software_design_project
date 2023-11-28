@@ -1,6 +1,7 @@
 package database;
 
 import Person.Person;
+import Ticket.Ticket;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +10,7 @@ public class Person_database extends Database
 {
     private static Person_database singletonDB;
     private final List<Person> db;
+
 
     private Person_database()
     {
@@ -48,10 +50,12 @@ public class Person_database extends Database
 
     public void changeFullName(String oldName, String newName)
     {
+
         if(findInDatabase(oldName) != null)
         {
             Person person = findInDatabase(oldName);
             person.changeFullName(newName);
+
         }
     }
 
