@@ -48,21 +48,21 @@ public class Person_database extends Database
 
     public void changeFullName(String oldName, String newName)
     {
-        for (Person person : db)
+        if(findInDatabase(oldName) != null)
         {
-            if(oldName == person.getFullName())
-                person.changeFullName(newName);
+            Person person = findInDatabase(oldName);
+            person.changeFullName(newName);
         }
     }
 
     // Searches for the person by name and returns null if not found
     private Person findInDatabase(String name)
     {
-        for(int i = 0; i<db.size(); i++)
+        for(Person person : db)
         {
-            if(name == db.get(i).getFullName())
+            if(name == person.getFullName())
             {
-                return db.get(i);
+                return person;
             }
         }
         return null;
