@@ -34,7 +34,7 @@ public class Person_database extends Database
 
     public void addPerson(Person person)
     {
-        if(Objects.equals(findInDatabase(person.getFullName()).getFullName(), person.getFullName())) // Prevents doubles in the list
+        if(Objects.equals(findInDatabase(person.getFullName()).getFullName(), person.getFullName()) & ) // Prevents doubles in the list
         {
             db.add(person);
         } else if (db.isEmpty()) {
