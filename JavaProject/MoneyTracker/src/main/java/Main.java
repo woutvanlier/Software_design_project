@@ -1,10 +1,13 @@
 import Person.Person;
 import Person.PersonFactory;
 import Ticket.Ticket;
+import UI.FrameManager;
 import database.Person_database;
 import database.Ticket_database;
 import Ticket.Split_evenly;
 import Ticket.Split_unevenly;
+
+import java.awt.*;
 
 public class Main
 {
@@ -63,5 +66,8 @@ public class Main
         System.out.println(ticketDB);
 
 
+
+        FrameManager frameManager = new FrameManager();
+        frameManager.initialize();
     }
 }
