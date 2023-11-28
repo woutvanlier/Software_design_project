@@ -12,7 +12,7 @@ public class Split_evenly extends Abstract_decorator {
 
     @Override
     public void showOwed(String name) {
-        System.out.println("You owe "+super.getName()+": €"+PricePerPerson);
+        System.out.println("You owe "+super.getName()+": €"+PricePerPerson+" , paid on "+super.getDate());
     }
     public double calculatePricePerPerson(){
         PricePerPerson = (super.getPrice()/Person_database.getInstance().getAmountOfPersons());

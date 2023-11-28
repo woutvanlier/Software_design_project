@@ -23,7 +23,7 @@ public class Split_unevenly extends Abstract_decorator {
     public void setPrices() {
         boolean completed = false;
         while(!completed){
-        System.out.println("The bill was: €" + super.getPrice());
+        System.out.println("The bill was: €" + super.getPrice() + " , paid on "+super.getDate());
             for (Person p : db) {
                 if (!Objects.equals(super.getName(), p.getFullName())) {
                     System.out.println("How much does " + p.getFullName() + " owe you: ");
@@ -45,6 +45,6 @@ public class Split_unevenly extends Abstract_decorator {
     }
     @Override
     public void showOwed(String name) {
-        System.out.println("You owe "+super.getName()+": €"+prices.get(name));
+        System.out.println("You owe "+super.getName()+": €"+prices.get(name)+" , paid on "+super.getDate());
     }
 }

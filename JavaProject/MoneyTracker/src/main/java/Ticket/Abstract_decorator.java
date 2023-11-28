@@ -21,4 +21,9 @@ public abstract class Abstract_decorator implements Abstract_ticket
     public void setPrice(double price){
          this.ticket.setPrice(price);
     }
+    public String getDate() {
+        return this.ticket.getDate();}
+
+    public void setDate(String date) {
+        this.ticket.setDate(date);}
 }
