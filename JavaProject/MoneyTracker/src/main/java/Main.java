@@ -36,10 +36,10 @@ public class Main
 
         Ticket_database ticketDB = Ticket_database.getInstance();
 
-        Ticket ticket1 = new Ticket("Eliott", 45.2, "Restaurant");
-        Ticket ticket2 = new Ticket("Wout", 45.2, "Restaurant");
-        Ticket ticket3 = new Ticket("Jan", 300.25, "Concert");
-        Ticket ticket4 = new Ticket("Eliott", 845, "Airplane");
+        Ticket ticket1 = new Ticket("Eliott", 45.2,"10/02/2023", "Restaurant");
+        Ticket ticket2 = new Ticket("Wout", 45.2,"11/02/2023", "Restaurant");
+        Ticket ticket3 = new Ticket("Jan", 300.25,"18/02/2023", "Concert");
+        Ticket ticket4 = new Ticket("Eliott", 845,"20/02/2023", "Airplane");
 
         personDB.changeFullName("Jan","Thomas");
 
