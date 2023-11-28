@@ -2,6 +2,8 @@ import Person.Person;
 import Ticket.Ticket;
 import database.Person_database;
 import database.Ticket_database;
+import Ticket.Split_evenly;
+import Ticket.Split_unevenly;
 
 public class Main
 {
@@ -34,10 +36,18 @@ public class Main
 
         Ticket_database ticketDB = Ticket_database.getInstance();
 
-        Ticket ticket1 = new Ticket("McDonalds", 45.2, "Food & Drinks");
-        Ticket ticket2 = new Ticket("McDonalds", 45.2, "Food & Drinks");
-        Ticket ticket3 = new Ticket("Hotel", 300.25, "Accommodation");
-        Ticket ticket4 = new Ticket("Flight", 845, "Transportation");
+        Ticket ticket1 = new Ticket("Eliott", 45.2, "Restaurant");
+        Ticket ticket2 = new Ticket("Wout", 45.2, "Restaurant");
+        Ticket ticket3 = new Ticket("Thomas", 300.25, "Concert");
+        Ticket ticket4 = new Ticket("Eliott", 845, "Airplane");
+
+        Split_evenly ticket_even = new Split_evenly(ticket1);
+        Split_unevenly ticket_uneven = new Split_unevenly(ticket3);
+
+        System.out.println(Person_database.getInstance().getAmountOfPersons());
+
+        ticket_even.showOwed("Eliott");
+
 
         ticketDB.addTicket(ticket1);
         ticketDB.addTicket(ticket2);
@@ -45,5 +55,7 @@ public class Main
         ticketDB.addTicket(ticket4);
 
         System.out.println(ticketDB);
+
+
     }
 }

@@ -4,6 +4,7 @@ import Person.Person;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Person_database extends Database
 {
@@ -23,13 +24,22 @@ public class Person_database extends Database
 
         return singletonDB;
     }
+    public int getAmountOfPersons(){
+        return db.size();
+    }
+
+    public List<Person> getDb() {
+        return db;
+    }
 
     public void addPerson(Person person)
     {
         if(findInDatabase(person.getFullName()) != null) // Prevents doubles in the list
         {
             db.add(person);
-        }         
+        } else if (db.isEmpty()) {
+            db.add(person);
+        }
     }
 
     public Person getPerson(String name)
@@ -42,7 +52,7 @@ public class Person_database extends Database
     {
         for (Person person : db)
         {
-            if (name == person.getFullName())
+            if (Objects.equals(name, person.getFullName()))
                 return person;
         }
         return null;

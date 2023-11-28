@@ -17,12 +17,16 @@ public class Ticket implements Abstract_ticket {
         switch(typeOfTicket){
             case "Airplane":
                 this.typeOfTicket = TicketType.Airplane;
+                break;
             case "Restaurant":
                 this.typeOfTicket = TicketType.Restaurant;
+                break;
             case "Taxi":
                 this.typeOfTicket = TicketType.Taxi;
+                break;
             case "Concert":
                 this.typeOfTicket = TicketType.Concert;
+                break;
             default:
                System.out.println("Invalid type of ticket!");
         }
@@ -48,13 +52,6 @@ public class Ticket implements Abstract_ticket {
     }
 
     @Override
-    public void showOwed(String name) {
-
-    }
-
-    @Override
-    public void setSplitDecorator(String split) {
-
-    }
+    public void showOwed(String name) {}
 
 }
