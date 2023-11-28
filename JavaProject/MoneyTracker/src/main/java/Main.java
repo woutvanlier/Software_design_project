@@ -1,4 +1,5 @@
 import Person.Person;
+import Person.PersonFactory;
 import Ticket.Ticket;
 import database.Person_database;
 import database.Ticket_database;
@@ -21,11 +22,14 @@ public class Main
     public void run()
     {
         Person_database personDB = Person_database.getInstance();
+        PersonFactory personFactory = new PersonFactory();
 
-        Person person1 = new Person("Eliott");
-        Person person2 = new Person("Eliott");
-        Person person3 = new Person("Wout");
-        Person person4 = new Person("Thomas");
+
+        Person person1 = personFactory.createPerson("Eliott");
+        Person person2 = personFactory.createPerson("Eliott");
+        Person person3 = personFactory.createPerson("Wout");
+        Person person4 = personFactory.createPerson("Thomas");
+
 
         personDB.addPerson(person1);
         personDB.addPerson(person2);
