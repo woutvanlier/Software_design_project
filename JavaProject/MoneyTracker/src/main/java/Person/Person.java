@@ -13,4 +13,6 @@ public class Person
     {
         return fullName;
     }
+
+    public void changeFullName(String newfullName) {this.fullName = newfullName;}
 }

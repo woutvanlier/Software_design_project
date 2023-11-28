@@ -37,6 +37,15 @@ public class Person_database extends Database
         return findInDatabase(name);
     }
 
+    public void changeFullName(String oldName, String newName)
+    {
+        for (Person person : db)
+        {
+            if(oldName == person.getFullName())
+                person.changeFullName(newName);
+        }
+    }
+
     // Searches for the person by name and returns null if not found
     private Person findInDatabase(String name)
     {
