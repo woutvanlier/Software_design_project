@@ -8,12 +8,18 @@ public class Ticket implements Abstract_ticket {
         Taxi,
         Concert
     }
+
     private TicketType typeOfTicket;
+
     private String name;
     private double price;
-    public Ticket(String name, double price, String typeOfTicket) {
+    private String date;
+
+    public Ticket(String name, double price, String date, String typeOfTicket) {
         this.name = name;
         this.price = price;
+        this.date = date;
+
         switch(typeOfTicket){
             case "Airplane":
                 this.typeOfTicket = TicketType.Airplane;
@@ -50,6 +56,10 @@ public class Ticket implements Abstract_ticket {
     public void setPrice(double price) {
         this.price = price;
     }
+
+    public String getDate() {return date;}
+
+    public void setDate(String date) {this.date = date;}
 
     @Override
     public void showOwed(String name) {}

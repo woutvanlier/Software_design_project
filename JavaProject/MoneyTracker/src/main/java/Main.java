@@ -1,9 +1,13 @@
 import Person.Person;
+import Person.PersonFactory;
 import Ticket.Ticket;
+import UI.FrameManager;
 import database.Person_database;
 import database.Ticket_database;
 import Ticket.Split_evenly;
 import Ticket.Split_unevenly;
+
+import java.awt.*;
 
 public class Main
 {
@@ -21,11 +25,14 @@ public class Main
     public void run()
     {
         Person_database personDB = Person_database.getInstance();
+        PersonFactory personFactory = new PersonFactory();
 
-        Person person1 = new Person("Eliott");
-        Person person2 = new Person("Eliott");
-        Person person3 = new Person("Wout");
-        Person person4 = new Person("Thomas");
+
+        Person person1 = personFactory.createPerson("Eliott");
+        Person person2 = personFactory.createPerson("Eliott");
+        Person person3 = personFactory.createPerson("Wout");
+        Person person4 = personFactory.createPerson("Thomas");
+
 
         personDB.addPerson(person1);
         personDB.addPerson(person2);
@@ -36,12 +43,12 @@ public class Main
 
         Ticket_database ticketDB = Ticket_database.getInstance();
 
-        Ticket ticket1 = new Ticket("Eliott", 45.2, "Restaurant");
-        Ticket ticket2 = new Ticket("Wout", 45.2, "Restaurant");
-        Ticket ticket3 = new Ticket("Jan", 300.25, "Concert");
-        Ticket ticket4 = new Ticket("Eliott", 845, "Airplane");
+        Ticket ticket1 = new Ticket("Eliott", 45.2,"10/02/2023", "Restaurant");
+        Ticket ticket2 = new Ticket("Wout", 45.2,"11/02/2023", "Restaurant");
+        Ticket ticket3 = new Ticket("Thomas", 300.25,"18/02/2023", "Concert");
+        Ticket ticket4 = new Ticket("Eliott", 845,"20/02/2023", "Airplane");
 
-        personDB.changeFullName("Jan","Thomas");
+
 
         Split_evenly ticket_even = new Split_evenly(ticket1);
         Split_unevenly ticket_uneven = new Split_unevenly(ticket3);
@@ -59,5 +66,8 @@ public class Main
         System.out.println(ticketDB);
 
 
+
+        FrameManager frameManager = new FrameManager();
+        frameManager.initialize();
     }
 }
