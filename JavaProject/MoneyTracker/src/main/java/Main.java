@@ -31,7 +31,7 @@ public class Main
         Person person1 = personFactory.createPerson("Eliott");
         Person person2 = personFactory.createPerson("Eliott");
         Person person3 = personFactory.createPerson("Wout");
-        Person person4 = personFactory.createPerson("Thomas");
+        Person person4 = personFactory.createPerson("Tomas");
 
 
         personDB.addPerson(person1);
@@ -43,11 +43,14 @@ public class Main
 
         Ticket_database ticketDB = Ticket_database.getInstance();
 
-        Ticket ticket1 = new Ticket("Eliott", 45.2,"10/02/2023", "Restaurant");
+        ticketDB.changeNameOnTicket("Tomas","Thomas",personDB);
+
+        System.out.println(ticketDB);
+
+        Ticket ticket1 = new Ticket("Eliottt", 45.2,"10/02/2023", "Restaurant");
         Ticket ticket2 = new Ticket("Wout", 45.2,"11/02/2023", "Restaurant");
         Ticket ticket3 = new Ticket("Thomas", 300.25,"18/02/2023", "Concert");
-        Ticket ticket4 = new Ticket("Eliott", 845,"20/02/2023", "Airplane");
-
+        Ticket ticket4 = new Ticket("Eliottt", 845,"20/02/2023", "Airplane");
 
 
         Split_evenly ticket_even = new Split_evenly(ticket1);
@@ -64,7 +67,6 @@ public class Main
         ticketDB.addTicket(ticket4);
 
         System.out.println(ticketDB);
-
 
 
         FrameManager frameManager = new FrameManager();
