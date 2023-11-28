@@ -38,8 +38,10 @@ public class Main
 
         Ticket ticket1 = new Ticket("Eliott", 45.2, "Restaurant");
         Ticket ticket2 = new Ticket("Wout", 45.2, "Restaurant");
-        Ticket ticket3 = new Ticket("Thomas", 300.25, "Concert");
+        Ticket ticket3 = new Ticket("Jan", 300.25, "Concert");
         Ticket ticket4 = new Ticket("Eliott", 845, "Airplane");
+
+        personDB.changeFullName("Jan","Thomas");
 
         Split_evenly ticket_even = new Split_evenly(ticket1);
         Split_unevenly ticket_uneven = new Split_unevenly(ticket3);

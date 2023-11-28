@@ -26,11 +26,20 @@ public class Person_database extends Database
 
     public void addPerson(Person person)
     {
-        if(Objects.equals(findInDatabase(person.getFullName()).getFullName(), person.getFullName()) & ) // Prevents doubles in the list
+        if(findInDatabase(person.getFullName()) == null)  // Prevents doubles in the list
         {
             db.add(person);
         }         
     }
+
+    public int getAmountOfPersons(){
+        return db.size();
+    }
+
+    public List<Person> getDb(){
+        return  db;
+    }
+
 
     public Person getPerson(String name)
     {
