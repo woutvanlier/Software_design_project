@@ -17,7 +17,7 @@ public class AddPersonButtonPanel extends JPanel
         JButton button = new JButton("ADD USER");
         button.addActionListener(e ->
         {
-            Person newPerson = new Person(personNameField.getText());
+            Person newPerson =  new Person(personNameField.getText());
             personDatabase.addPerson(newPerson); // MOET FACTORY WORDEN
             personPanel.addPersonXtra(newPerson);
 

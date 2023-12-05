@@ -37,4 +37,6 @@ public class FrameManager extends JFrame {
 
         this.setVisible(true);
     }
+
+    
 }
