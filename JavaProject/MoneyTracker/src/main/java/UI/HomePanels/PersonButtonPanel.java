@@ -11,7 +11,7 @@ import java.io.File;
 
 public class PersonButtonPanel extends JPanel
 {
-    public PersonButtonPanel(FrameManager frameManager, HomeView homeView, Person_database personDatabase)
+    public PersonButtonPanel(FrameManager frameManager, HomeView homeView)
     {
         String src = new File("src/main/java/UI/Resources/button1.png").getAbsolutePath();
         ImageIcon icon = new ImageIcon(src);
@@ -28,7 +28,7 @@ public class PersonButtonPanel extends JPanel
 
         button.addActionListener(e ->
         {
-            PersonView personView = new PersonView(homeView, frameManager, personDatabase);
+            PersonView personView = new PersonView(homeView, frameManager, frameManager.getPersonDatabase());
             frameManager.setContentPane(personView);
             frameManager.revalidate();
         });

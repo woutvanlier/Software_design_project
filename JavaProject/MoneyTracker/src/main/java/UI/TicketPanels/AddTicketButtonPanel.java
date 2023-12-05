@@ -1,5 +1,6 @@
 package UI.TicketPanels;
 
+import Ticket.Ticket;
 import UI.FrameManager;
 import UI.HomePanels.LogPanel;
 import UI.Views.HomeView;
@@ -14,10 +15,10 @@ public class AddTicketButtonPanel extends JPanel
         JButton button = new JButton("ADD TICKET");
         button.addActionListener(e ->
         {
-
-
             frameManager.setContentPane(homeView);
             logPanel.addElement(ticketView.getTicketName(), ticketView.getPricePaid(), ticketView.getPersonPaid(), ticketView.getTicketCat(), frameManager);
+            //Ticket newTicket = new Ticket(ticketView.getTicketName(), Double.parseDouble(ticketView.getPricePaid()), ticketView.getPersonPaid(), ticketView.getTicketCat()); // via factory
+
             frameManager.revalidate();
         });
         this.add(button);

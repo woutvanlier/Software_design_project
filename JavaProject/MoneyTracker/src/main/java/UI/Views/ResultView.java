@@ -12,7 +12,7 @@ import java.awt.*;
 
 public class ResultView extends JPanel
 {
-    public ResultView(FrameManager frameManager, HomeView homeView, Person_database personDatabase)
+    public ResultView(FrameManager frameManager, HomeView homeView)
     {
         this.setBackground(new Color(30,30,30));
 
@@ -40,7 +40,7 @@ public class ResultView extends JPanel
         this.add(separatorPanel,c);
 
         // Log
-        BalancePanel balancePanel = new BalancePanel(frameManager, personDatabase);
+        BalancePanel balancePanel = new BalancePanel(frameManager);
         balancePanel.setOpaque(false);
         //region >> Constraints
         c.gridy = 2;

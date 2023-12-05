@@ -5,6 +5,7 @@ import UI.HomePanels.*;
 import UI.Panels.SeparatorPanel;
 import UI.Panels.TitlePanel;
 import database.Person_database;
+import database.Ticket_database;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,7 +20,7 @@ public class HomeView extends JPanel
     SeparatorPanel separatorPanel;
     JScrollPane scrollPane;
 
-    public HomeView(FrameManager frameManager, Person_database personDatabase)
+    public HomeView(FrameManager frameManager, Person_database personDatabase, Ticket_database ticketDatabase)
     {
         this.setBackground(new Color(30,30,30));
 
@@ -47,7 +48,7 @@ public class HomeView extends JPanel
         this.add(separatorPanel,c);
 
         // Log
-        logPanel = new LogPanel(this);
+        logPanel = new LogPanel(this, frameManager);
         logPanel.setOpaque(false);
         //region >> Constraints
         c.gridy = 2;
@@ -62,10 +63,12 @@ public class HomeView extends JPanel
         scrollPane.setPreferredSize(new Dimension(200,475));
         scrollPane.setAlignmentY(JScrollPane.TOP_ALIGNMENT);
         scrollPane.getViewport().setBackground(new Color(30,30,30));
+
+        logPanel.updateTickets(); //update already made tickets at main
         //endregion
         this.add(scrollPane, c);
 
-        AllButtons allButtons = new AllButtons(logPanel, frameManager, this, personDatabase);
+        AllButtons allButtons = new AllButtons(logPanel, frameManager, this);
         allButtons.setLayout(new GridLayout(1,1));
         allButtons.setOpaque(false);
         allButtons.setBackground(new Color(30,30,30));

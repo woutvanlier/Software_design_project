@@ -7,4 +7,8 @@ public interface Abstract_ticket {
      void setName(String name);
      double getPrice();
      void setPrice(double price);
+
+     String getDate();
+
+     void setDate(String date);
 }
