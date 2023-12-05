@@ -23,23 +23,27 @@ public class Split_unevenly extends Abstract_decorator {
     }
     public void setPrices() {
         boolean completed = false;
-        while(!completed){
-        System.out.println("The bill was: €" + super.getPrice() + " , paid on "+super.getDate());
-            for (Person p : db) {
+        while(!completed)
+        {
+            System.out.println("The bill was: €" + super.getPrice() + " , paid on "+super.getDate());
+            for (Person p : db)
+            {
                 if (!Objects.equals(super.getName(), p.getFullName())) {
                     System.out.println("How much does " + p.getFullName() + " owe you: ");
                     double amount = scanner.nextDouble();
                     SumOfPrices += amount;
                     if (SumOfPrices <= super.getPrice()) {
                         prices.put(p.getFullName(), amount);
-                    }else{
+                    }
+                    else{
                         System.out.println("Amount exceeded ticket value!");
                         prices.clear();
                         SumOfPrices = 0;
                         break;
                     }
                 }
-            } if(!prices.isEmpty()){
+            }
+            if(!prices.isEmpty()){
                 completed = true;
             }
         }

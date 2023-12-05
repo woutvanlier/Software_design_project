@@ -29,10 +29,10 @@ public class Person_database extends Database
 
     public void addPerson(Person person)
     {
-        if(findInDatabase(person.getFullName()) == null && db.size() != 0)  // Prevents doubles in the list
+        if(findInDatabase(person.getFullName()) == null)  // Prevents doubles in the list
         {
-            PropertyChangeEvent event = new PropertyChangeEvent(this,"database",db.get(db.size() - 1), person);
-            listenerManager.firePropertyChange(event);
+            //PropertyChangeEvent event = new PropertyChangeEvent(this,"database",db.get(db.size() - 1), person);
+            //listenerManager.firePropertyChange(event);
             db.add(person);
         }         
     }

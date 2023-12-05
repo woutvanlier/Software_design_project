@@ -31,7 +31,6 @@ public class Ticket_database extends Database
     }
 
     public void addTicket(Ticket ticket)
-
     {
         PropertyChangeEvent event = new PropertyChangeEvent(this,"database",db.get(db.size() - 1), ticket);
         listenerManager.firePropertyChange(event);

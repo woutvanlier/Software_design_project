@@ -19,7 +19,7 @@ public class AddPersonButtonPanel extends JPanel
         button.addActionListener(e ->
         {
             Person newPerson =  PersonFactory.createPerson(personNameField.getText());
-            personDatabase.addPerson(newPerson); // MOET FACTORY WORDEN
+            personDatabase.addPerson(newPerson);
             personPanel.addPersonXtra(newPerson);
 
             personNameField.setText("");
