@@ -20,14 +20,14 @@ public class Main
     public void run()
     {
         Person_database personDB = Person_database.getInstance();
-        PersonFactory personFactory = new PersonFactory();
+        //PersonFactory personFactory = new PersonFactory();
 
         // Because person is protected, we need to make persons via the factory!
 
-        Person person1 = personFactory.createPerson("Eliott");
-        Person person2 = personFactory.createPerson("Eliott");
-        Person person3 = personFactory.createPerson("Wout");
-        Person person4 = personFactory.createPerson("Tomas");
+        Person person1 = PersonFactory.createPerson("Eliott");
+        Person person2 = PersonFactory.createPerson("Eliott");
+        Person person3 = PersonFactory.createPerson("Wout");
+        Person person4 = PersonFactory.createPerson("Tomas");
 
 
         personDB.addPerson(person1);
