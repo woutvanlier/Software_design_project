@@ -10,7 +10,7 @@ import java.io.File;
 
 public class AllButtons extends JPanel
 {
-    public AllButtons(LogPanel logPanel, FrameManager frameManager, HomeView homeView, Person_database personDatabase)
+    public AllButtons(LogPanel logPanel, FrameManager frameManager, HomeView homeView)
     {
         String src = new File("src/main/java/UI/Resources/buttonLong.png").getAbsolutePath();
         ImageIcon icon = new ImageIcon(src);
@@ -24,14 +24,14 @@ public class AllButtons extends JPanel
         GridBagConstraints c = new GridBagConstraints();
 
         // Buttons
-        PersonButtonPanel addPersonPanel = new PersonButtonPanel(frameManager, homeView, personDatabase);
+        PersonButtonPanel addPersonPanel = new PersonButtonPanel(frameManager, homeView);
         addPersonPanel.setLayout(new GridLayout(1,1));
         addPersonPanel.setOpaque(false);
         addPersonPanel.setBackground(new Color(30,30,30));
         c.gridx = 0;
         label.add(addPersonPanel, c);
 
-        ResultButtonPanel calcResultPanel = new ResultButtonPanel(frameManager, homeView, personDatabase);
+        ResultButtonPanel calcResultPanel = new ResultButtonPanel(frameManager, homeView);
         calcResultPanel.setLayout(new GridLayout(1,1));
         calcResultPanel.setOpaque(false);
         calcResultPanel.setBackground(new Color(30,30,30));
@@ -50,8 +50,6 @@ public class AllButtons extends JPanel
         c.insets.left = 0;
 
         label.add(addTicketPanel, c);
-
-
 
         this.add(label);
     }

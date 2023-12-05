@@ -1,7 +1,9 @@
 package UI.HomePanels;
 
+import Ticket.Ticket;
 import UI.FrameManager;
 import UI.Views.HomeView;
+import database.Ticket_database;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,11 +12,14 @@ public class LogPanel extends JPanel
 {
     HomeView homeView;
     GridBagLayout gridLayout;
+    FrameManager frameManager;
     int layoutY = 0;
+;
 
-    public LogPanel(HomeView homeView)
+    public LogPanel(HomeView homeView, FrameManager frameManager)
     {
         this.homeView = homeView;
+        this.frameManager = frameManager;
 
         gridLayout = new GridBagLayout();
         this.setLayout(gridLayout);
@@ -22,6 +27,17 @@ public class LogPanel extends JPanel
         JLabel label = new JLabel("No Tickets Available");
         label.setForeground(Color.white);
         this.add(label);
+    }
+
+    public void updateTickets()
+    {
+        this.removeAll();
+        this.repaint();
+
+        for (Ticket t : frameManager.getTicketDatabase().getDb())
+        {
+            addElement(t.getName(), t.getPrice() + "", t.getName(), t.getName(), frameManager);
+        }
     }
 
     public void addElement(String ticketName, String price, String personPaying, String cat, FrameManager frameManager)

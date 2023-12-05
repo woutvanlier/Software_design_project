@@ -11,18 +11,18 @@ public class BalancePanel extends JPanel
 {
     int layoutY = 0;
     GridBagLayout gridLayout;
-    public BalancePanel(FrameManager frameManager, Person_database personDatabase)
+    public BalancePanel(FrameManager frameManager)
     {
         this.setLayout(new GridBagLayout());
 
         gridLayout = new GridBagLayout();
         this.setLayout(gridLayout);
 
-        for(Person person : personDatabase.getDb())
-            addElement(frameManager, person, personDatabase);
+        for(Person person : frameManager.getPersonDatabase().getDb())
+            addElement(frameManager, person);
     }
 
-    public void addElement(FrameManager frameManager, Person person, Person_database personDatabase)
+    public void addElement(FrameManager frameManager, Person person)
     {
         /*if(layoutY == 0)
         {
@@ -35,7 +35,7 @@ public class BalancePanel extends JPanel
         c.weighty = 0.0;
         c.fill = GridBagConstraints.HORIZONTAL;
         c.weightx = 1.0;
-        this.add(new BalanceElementPanel(personDatabase, person));
+        this.add(new BalanceElementPanel(frameManager.getPersonDatabase(), person));
 
         for(int i=0; i<this.getComponentCount()-1; i++)
         {
