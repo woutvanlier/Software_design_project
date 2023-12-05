@@ -66,6 +66,6 @@ public class Main
 
 
         FrameManager frameManager = new FrameManager();
-        frameManager.initialize(personDB);
+        frameManager.initialize(personDB, ticketDB);
     }
 }

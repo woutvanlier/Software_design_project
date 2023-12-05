@@ -9,6 +9,11 @@ import java.util.List;
 public class Ticket_database extends Database
 {
     private static Ticket_database singletonDB;
+
+    public List<Ticket> getDb() {
+        return db;
+    }
+
     private final List<Ticket> db;
     
     private Ticket_database()
