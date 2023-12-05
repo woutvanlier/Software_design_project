@@ -1,11 +1,15 @@
 package UI.PersonPanels;
 
+import Person.Person;
+import database.Person_database;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class PersonPanel extends JPanel
 {
-    public PersonPanel(JTextField personNameField)
+    int yLayer = 0;
+    public PersonPanel(JTextField personNameField, Person_database personDatabase)
     {
         this.setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
@@ -30,11 +34,19 @@ public class PersonPanel extends JPanel
         this.add(listPeople, c);
 
         // list of all users
-        for(int i=0; i<5; i++)
+        for(Person person : personDatabase.getDb())
         {
-            UserPanel userPanel = new UserPanel("User" + i);
-            c.gridy = 3+i;
+            UserPanel userPanel = new UserPanel(person.getFullName());
+            c.gridy = 3+yLayer; yLayer++;
             this.add(userPanel, c);
         }
+    }
+
+    public void addPersonXtra(Person person)
+    {
+        GridBagConstraints c = new GridBagConstraints();
+        UserPanel userPanel = new UserPanel(person.getFullName());
+        c.gridy = 3+yLayer; yLayer++;
+        this.add(userPanel, c);
     }
 }

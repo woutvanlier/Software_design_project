@@ -3,6 +3,7 @@ package UI.HomePanels;
 import UI.FrameManager;
 import UI.Views.HomeView;
 import UI.Views.ResultView;
+import database.Person_database;
 
 import javax.swing.*;
 import java.awt.*;

@@ -3,6 +3,7 @@ package UI.HomePanels;
 import UI.FrameManager;
 import UI.Views.HomeView;
 import UI.Views.PersonView;
+import database.Person_database;
 
 import javax.swing.*;
 import java.awt.*;
@@ -27,7 +28,7 @@ public class PersonButtonPanel extends JPanel
 
         button.addActionListener(e ->
         {
-            PersonView personView = new PersonView(homeView, frameManager);
+            PersonView personView = new PersonView(homeView, frameManager, frameManager.getPersonDatabase());
             frameManager.setContentPane(personView);
             frameManager.revalidate();
         });

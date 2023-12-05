@@ -6,13 +6,14 @@ import UI.Panels.SeparatorPanel;
 import UI.Panels.TitlePanel;
 import UI.PersonPanels.AddPersonButtonPanel;
 import UI.PersonPanels.PersonPanel;
+import database.Person_database;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class PersonView extends JPanel
 {
-    public PersonView(HomeView homeview, FrameManager frameManager)
+    public PersonView(HomeView homeview, FrameManager frameManager, Person_database personDatabase)
     {
         this.setBackground(new Color(30,30,30));
 
@@ -41,7 +42,7 @@ public class PersonView extends JPanel
 
         // PersonPane
         JTextField personName = new JTextField();
-        PersonPanel personPanel = new PersonPanel(personName);
+        PersonPanel personPanel = new PersonPanel(personName, personDatabase);
         personPanel.setLayout(new GridLayout(0,1));
         //region >> Constraints
         c.gridy = 2;
@@ -51,7 +52,7 @@ public class PersonView extends JPanel
         this.add(personPanel, c);
 
         //Button
-        AddPersonButtonPanel addPerson = new AddPersonButtonPanel(homeview, frameManager, personName);
+        AddPersonButtonPanel addPerson = new AddPersonButtonPanel(personPanel, personName, personDatabase);
         addPerson.setLayout(new GridLayout(1,1));
         //region >> Constraints
         c.weighty = 0.0;

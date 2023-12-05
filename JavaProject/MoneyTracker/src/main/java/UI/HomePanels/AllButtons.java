@@ -2,6 +2,7 @@ package UI.HomePanels;
 
 import UI.FrameManager;
 import UI.Views.HomeView;
+import database.Person_database;
 
 import javax.swing.*;
 import java.awt.*;
@@ -49,8 +50,6 @@ public class AllButtons extends JPanel
         c.insets.left = 0;
 
         label.add(addTicketPanel, c);
-
-
 
         this.add(label);
     }

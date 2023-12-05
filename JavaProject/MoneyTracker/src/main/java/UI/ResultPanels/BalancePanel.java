@@ -1,6 +1,8 @@
 package UI.ResultPanels;
 
+import Person.Person;
 import UI.FrameManager;
+import database.Person_database;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,19 +18,11 @@ public class BalancePanel extends JPanel
         gridLayout = new GridBagLayout();
         this.setLayout(gridLayout);
 
-        /*BalanceElementPanel balanceElementPanel = new BalanceElementPanel();
-        //balanceElementPanel.setOpaque(false);
-        c.weightx = 1.0;
-        c.fill = GridBagConstraints.HORIZONTAL;
-        c.insets = new Insets(10, 10, 10, 10);
-        this.add(balanceElementPanel);*/
-
-        addElement(frameManager);
-        addElement(frameManager);
-        addElement(frameManager);
+        for(Person person : frameManager.getPersonDatabase().getDb())
+            addElement(frameManager, person);
     }
 
-    public void addElement(FrameManager frameManager)
+    public void addElement(FrameManager frameManager, Person person)
     {
         /*if(layoutY == 0)
         {
@@ -41,7 +35,7 @@ public class BalancePanel extends JPanel
         c.weighty = 0.0;
         c.fill = GridBagConstraints.HORIZONTAL;
         c.weightx = 1.0;
-        this.add(new BalanceElementPanel());
+        this.add(new BalanceElementPanel(frameManager.getPersonDatabase(), person));
 
         for(int i=0; i<this.getComponentCount()-1; i++)
         {
