@@ -31,8 +31,11 @@ public class Person_database extends Database
     {
         if(findInDatabase(person.getFullName()) == null)  // Prevents doubles in the list
         {
-            //PropertyChangeEvent event = new PropertyChangeEvent(this,"database",db.get(db.size() - 1), person);
-            //listenerManager.firePropertyChange(event);
+
+            if (db.size() != 0) {
+                PropertyChangeEvent event = new PropertyChangeEvent(this,"database",db.get(db.size() - 1), person);
+                listenerManager.firePropertyChange(event);
+            }
             db.add(person);
         }         
     }
