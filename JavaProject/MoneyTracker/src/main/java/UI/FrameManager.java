@@ -30,7 +30,7 @@ public class FrameManager extends JFrame {
 
         this.setSize(350, 650);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setResizable(false);
+        //this.setResizable(false);
         this.getContentPane().setBackground(new Color(30, 30, 30));
 
         this.setContentPane(homeView);
