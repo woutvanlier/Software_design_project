@@ -14,6 +14,8 @@ public class AddTicketButtonPanel extends JPanel
         JButton button = new JButton("ADD TICKET");
         button.addActionListener(e ->
         {
+
+
             frameManager.setContentPane(homeView);
             logPanel.addElement(ticketView.getTicketName(), ticketView.getPricePaid(), ticketView.getPersonPaid(), ticketView.getTicketCat(), frameManager);
             frameManager.revalidate();

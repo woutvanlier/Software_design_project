@@ -5,13 +5,14 @@ import UI.Panels.BackButtonPanel;
 import UI.Panels.SeparatorPanel;
 import UI.Panels.TitlePanel;
 import UI.ResultPanels.BalancePanel;
+import database.Person_database;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class ResultView extends JPanel
 {
-    public ResultView(FrameManager frameManager, HomeView homeView)
+    public ResultView(FrameManager frameManager, HomeView homeView, Person_database personDatabase)
     {
         this.setBackground(new Color(30,30,30));
 
@@ -39,7 +40,7 @@ public class ResultView extends JPanel
         this.add(separatorPanel,c);
 
         // Log
-        BalancePanel balancePanel = new BalancePanel(frameManager);
+        BalancePanel balancePanel = new BalancePanel(frameManager, personDatabase);
         balancePanel.setOpaque(false);
         //region >> Constraints
         c.gridy = 2;

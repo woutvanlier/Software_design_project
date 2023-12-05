@@ -3,6 +3,7 @@ package UI.HomePanels;
 import UI.FrameManager;
 import UI.Views.HomeView;
 import UI.Views.ResultView;
+import database.Person_database;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,7 +11,7 @@ import java.io.File;
 
 public class ResultButtonPanel extends JPanel
 {
-    public ResultButtonPanel(FrameManager frameManager, HomeView homeView) // From Higher class Button??
+    public ResultButtonPanel(FrameManager frameManager, HomeView homeView, Person_database personDatabase) // From Higher class Button??
     {
         String src = new File("src/main/java/UI/Resources/button2.png").getAbsolutePath();;
         ImageIcon icon = new ImageIcon(src);
@@ -27,7 +28,7 @@ public class ResultButtonPanel extends JPanel
 
         button.addActionListener(e ->
         {
-            ResultView resultView = new ResultView(frameManager, homeView);
+            ResultView resultView = new ResultView(frameManager, homeView, personDatabase);
             frameManager.setContentPane(resultView);
             frameManager.revalidate();
         });

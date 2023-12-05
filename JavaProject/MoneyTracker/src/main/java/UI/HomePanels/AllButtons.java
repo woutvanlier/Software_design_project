@@ -2,6 +2,7 @@ package UI.HomePanels;
 
 import UI.FrameManager;
 import UI.Views.HomeView;
+import database.Person_database;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,7 +10,7 @@ import java.io.File;
 
 public class AllButtons extends JPanel
 {
-    public AllButtons(LogPanel logPanel, FrameManager frameManager, HomeView homeView)
+    public AllButtons(LogPanel logPanel, FrameManager frameManager, HomeView homeView, Person_database personDatabase)
     {
         String src = new File("src/main/java/UI/Resources/buttonLong.png").getAbsolutePath();
         ImageIcon icon = new ImageIcon(src);
@@ -23,14 +24,14 @@ public class AllButtons extends JPanel
         GridBagConstraints c = new GridBagConstraints();
 
         // Buttons
-        PersonButtonPanel addPersonPanel = new PersonButtonPanel(frameManager, homeView);
+        PersonButtonPanel addPersonPanel = new PersonButtonPanel(frameManager, homeView, personDatabase);
         addPersonPanel.setLayout(new GridLayout(1,1));
         addPersonPanel.setOpaque(false);
         addPersonPanel.setBackground(new Color(30,30,30));
         c.gridx = 0;
         label.add(addPersonPanel, c);
 
-        ResultButtonPanel calcResultPanel = new ResultButtonPanel(frameManager, homeView);
+        ResultButtonPanel calcResultPanel = new ResultButtonPanel(frameManager, homeView, personDatabase);
         calcResultPanel.setLayout(new GridLayout(1,1));
         calcResultPanel.setOpaque(false);
         calcResultPanel.setBackground(new Color(30,30,30));

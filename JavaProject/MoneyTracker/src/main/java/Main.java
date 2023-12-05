@@ -70,6 +70,6 @@ public class Main
 
 
         FrameManager frameManager = new FrameManager();
-        frameManager.initialize();
+        frameManager.initialize(personDB);
     }
 }

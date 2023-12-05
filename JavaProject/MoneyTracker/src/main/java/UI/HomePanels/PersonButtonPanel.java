@@ -3,6 +3,7 @@ package UI.HomePanels;
 import UI.FrameManager;
 import UI.Views.HomeView;
 import UI.Views.PersonView;
+import database.Person_database;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,7 +11,7 @@ import java.io.File;
 
 public class PersonButtonPanel extends JPanel
 {
-    public PersonButtonPanel(FrameManager frameManager, HomeView homeView)
+    public PersonButtonPanel(FrameManager frameManager, HomeView homeView, Person_database personDatabase)
     {
         String src = new File("src/main/java/UI/Resources/button1.png").getAbsolutePath();
         ImageIcon icon = new ImageIcon(src);
@@ -27,7 +28,7 @@ public class PersonButtonPanel extends JPanel
 
         button.addActionListener(e ->
         {
-            PersonView personView = new PersonView(homeView, frameManager);
+            PersonView personView = new PersonView(homeView, frameManager, personDatabase);
             frameManager.setContentPane(personView);
             frameManager.revalidate();
         });

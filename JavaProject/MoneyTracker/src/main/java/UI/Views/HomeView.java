@@ -4,6 +4,7 @@ import UI.FrameManager;
 import UI.HomePanels.*;
 import UI.Panels.SeparatorPanel;
 import UI.Panels.TitlePanel;
+import database.Person_database;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,7 +19,7 @@ public class HomeView extends JPanel
     SeparatorPanel separatorPanel;
     JScrollPane scrollPane;
 
-    public HomeView(FrameManager frameManager)
+    public HomeView(FrameManager frameManager, Person_database personDatabase)
     {
         this.setBackground(new Color(30,30,30));
 
@@ -64,7 +65,7 @@ public class HomeView extends JPanel
         //endregion
         this.add(scrollPane, c);
 
-        AllButtons allButtons = new AllButtons(logPanel, frameManager, this);
+        AllButtons allButtons = new AllButtons(logPanel, frameManager, this, personDatabase);
         allButtons.setLayout(new GridLayout(1,1));
         allButtons.setOpaque(false);
         allButtons.setBackground(new Color(30,30,30));
