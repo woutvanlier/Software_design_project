@@ -1,6 +1,7 @@
 package UI.PersonPanels;
 
 import Person.Person;
+import Person.PersonFactory;
 import UI.FrameManager;
 import UI.Views.HomeView;
 import UI.Views.PersonView;
@@ -17,7 +18,7 @@ public class AddPersonButtonPanel extends JPanel
         JButton button = new JButton("ADD USER");
         button.addActionListener(e ->
         {
-            Person newPerson =  new Person(personNameField.getText());
+            Person newPerson =  PersonFactory.createPerson(personNameField.getText());
             personDatabase.addPerson(newPerson); // MOET FACTORY WORDEN
             personPanel.addPersonXtra(newPerson);
 

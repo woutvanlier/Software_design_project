@@ -1,7 +1,7 @@
 package Person;
 
 public class PersonFactory {
-    public Person createPerson(String name) {
+    public static Person createPerson(String name) {
         return new Person(name);
     }
 }
