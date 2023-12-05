@@ -17,16 +17,12 @@ public class Main
         main.run();
     }
 
-    public Main()
-    {
-
-    }
-
     public void run()
     {
         Person_database personDB = Person_database.getInstance();
         PersonFactory personFactory = new PersonFactory();
 
+        // Because person is protected, we need to make persons via the factory!
 
         Person person1 = personFactory.createPerson("Eliott");
         Person person2 = personFactory.createPerson("Eliott");
@@ -58,7 +54,7 @@ public class Main
 
         System.out.println(Person_database.getInstance().getAmountOfPersons());
 
-        ticket_even.showOwed("Eliott");
+        //ticket_even.showOwed("Eliott");
 
 
         ticketDB.addTicket(ticket1);

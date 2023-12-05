@@ -2,6 +2,7 @@ package database;
 
 import Ticket.Ticket;
 
+import java.beans.PropertyChangeEvent;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +26,10 @@ public class Ticket_database extends Database
     }
 
     public void addTicket(Ticket ticket)
+
     {
+        PropertyChangeEvent event = new PropertyChangeEvent(this,"database",db.get(db.size() - 1), ticket);
+        listenerManager.firePropertyChange(event);
         db.add(ticket);
     }
     
@@ -45,9 +49,10 @@ public class Ticket_database extends Database
     {
         for (Ticket ticket : db)
         {
-            if (name == ticket.getName())
+            if (name == ticket.getName()) {
                 ticket.setName(name);
                 return ticket;
+            }
         }
         return null;
     }

@@ -4,7 +4,7 @@ public class Person
 {
     private String fullName;
 
-    public Person(String fullName)
+    protected Person(String fullName)
     {
         this.fullName = fullName;
     }

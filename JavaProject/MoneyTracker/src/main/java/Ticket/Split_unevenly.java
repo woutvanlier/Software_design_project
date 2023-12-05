@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 //Everybody had something different: ticket is not split evenly
 public class Split_unevenly extends Abstract_decorator {
+
     private List<Person> db = Person_database.getInstance().getDb();
     private HashMap<String,Double> prices = new HashMap<String,Double>();
 

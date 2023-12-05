@@ -1,6 +1,7 @@
 package Ticket;
 
 public class Ticket implements Abstract_ticket {
+
     enum TicketType
     {
         Airplane,
@@ -36,9 +37,6 @@ public class Ticket implements Abstract_ticket {
             default:
                System.out.println("Invalid type of ticket!");
         }
-    }
-
-    public Ticket() {
     }
 
     public String getName() {
