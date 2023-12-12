@@ -1,12 +1,16 @@
 package UI.HomePanels;
 
+import Person.Person;
 import Ticket.Ticket;
 import UI.FrameManager;
 import UI.Views.HomeView;
+import UI.Views.LoginView;
 import database.Ticket_database;
+import Ticket.Abstract_ticket;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Objects;
 
 public class LogPanel extends JPanel
 {
@@ -14,9 +18,11 @@ public class LogPanel extends JPanel
     GridBagLayout gridLayout;
     FrameManager frameManager;
     int layoutY = 0;
+
+    Person loginPerson;
 ;
 
-    public LogPanel(HomeView homeView, FrameManager frameManager)
+    public LogPanel(LoginView loginview, HomeView homeView, FrameManager frameManager)
     {
         this.homeView = homeView;
         this.frameManager = frameManager;
@@ -27,6 +33,9 @@ public class LogPanel extends JPanel
         JLabel label = new JLabel("No Tickets Available");
         label.setForeground(Color.white);
         this.add(label);
+
+        loginPerson = loginview.getLoginPerson();
+
     }
 
     public void updateTickets()
@@ -34,13 +43,14 @@ public class LogPanel extends JPanel
         this.removeAll();
         this.repaint();
 
-        for (Ticket t : frameManager.getTicketDatabase().getDb())
+        for (Abstract_ticket t : frameManager.getTicketDatabase().getDb())
         {
-            addElement(t.getName(), t.getPrice() + "", t.getName(), t.getName(), frameManager);
+            if(!Objects.equals(loginPerson.getFullName(), t.getTicketHolder())){
+                addElement(t,loginPerson, frameManager);}
         }
     }
 
-    public void addElement(String ticketName, String price, String personPaying, String cat, FrameManager frameManager)
+    public void addElement(Abstract_ticket ticket, Person person, FrameManager frameManager)
     {
         if(layoutY == 0)
         {
@@ -53,7 +63,7 @@ public class LogPanel extends JPanel
         c.weighty = 0.0;
         c.fill = GridBagConstraints.HORIZONTAL;
         c.weightx = 1.0;
-        this.add(new LogElementPanel(ticketName, price, personPaying, cat));
+        this.add(new LogElementPanel(ticket,person));
 
         for(int i=0; i<this.getComponentCount()-1; i++)
         {

@@ -2,6 +2,7 @@ package UI.HomePanels;
 
 import UI.FrameManager;
 import UI.Views.HomeView;
+import UI.Views.LoginView;
 import UI.Views.TicketView;
 
 import javax.swing.*;
@@ -10,7 +11,7 @@ import java.io.File;
 
 public class TicketButtonPanel extends JPanel
 {
-    public TicketButtonPanel(LogPanel logPanel, FrameManager frameManager, HomeView homeView)
+    public TicketButtonPanel(LogPanel logPanel, FrameManager frameManager, HomeView homeView, LoginView loginview)
     {
         String src = new File("src/main/java/UI/Resources/button3.png").getAbsolutePath();
         ImageIcon icon = new ImageIcon(src);
@@ -27,7 +28,7 @@ public class TicketButtonPanel extends JPanel
 
         button.addActionListener(e ->
         {
-            TicketView ticketView = new TicketView(logPanel, homeView, frameManager);
+            TicketView ticketView = new TicketView(logPanel, homeView, frameManager, loginview);
             frameManager.setContentPane(ticketView);
             frameManager.revalidate();
         });

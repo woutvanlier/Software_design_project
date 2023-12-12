@@ -14,7 +14,7 @@ import java.awt.*;
 public class TicketView extends JPanel
 {
     TicketPanel ticketPanel;
-    public TicketView(LogPanel logPanel, HomeView homeView, FrameManager frameManager)
+    public TicketView(LogPanel logPanel, HomeView homeView, FrameManager frameManager, LoginView loginview)
     {
         this.setBackground(new Color(30,30,30));
 
@@ -42,7 +42,7 @@ public class TicketView extends JPanel
         this.add(separatorPanel,c);
 
         // TicketPane
-        ticketPanel = new TicketPanel();
+        ticketPanel = new TicketPanel(frameManager.getPersonDatabase());
         ticketPanel.setLayout(new GridLayout(10,1));
         //region >> Constraints
         c.gridy = 2;
@@ -52,7 +52,7 @@ public class TicketView extends JPanel
         this.add(ticketPanel, c);
 
         //Button
-        AddTicketButtonPanel addButton = new AddTicketButtonPanel(this, logPanel, frameManager, homeView);
+        AddTicketButtonPanel addButton = new AddTicketButtonPanel(this, logPanel, frameManager, homeView, ticketPanel,loginview);
         addButton.setLayout(new GridLayout(1,1));
         //region >> Constraints
         c.weighty = 0.0;
@@ -81,9 +81,9 @@ public class TicketView extends JPanel
         return ticketPanel.getTicketNameField().getText();
     }
 
-    public String getPricePaid()
+    public double getPricePaid()
     {
-        return ticketPanel.getPriceNameField().getText();
+        return Double.parseDouble(ticketPanel.getPriceNameField().getText());
     }
 
     public String getPersonPaid()
@@ -95,4 +95,7 @@ public class TicketView extends JPanel
     {
         return ticketPanel.getCatNamePane().getSelectedItem().toString();
     }
+
+    public String getDatePaid(){return ticketPanel.getDateField().getText();}
+
 }

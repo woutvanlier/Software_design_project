@@ -1,6 +1,7 @@
 package UI;
 
 import UI.Views.HomeView;
+import UI.Views.LoginView;
 import database.Person_database;
 import database.Ticket_database;
 
@@ -11,7 +12,6 @@ public class FrameManager extends JFrame {
     public FrameManager() {
         super("Splitwise");
     }
-
     Person_database personDatabase;
     Ticket_database ticketDatabase;
     public Person_database getPersonDatabase() {
@@ -26,14 +26,15 @@ public class FrameManager extends JFrame {
         this.personDatabase = personDatabase;
         this.ticketDatabase = ticketDatabase;
 
-        HomeView homeView = new HomeView(this, personDatabase, ticketDatabase);
+        LoginView loginView = new LoginView(this, personDatabase,ticketDatabase);
+
 
         this.setSize(350, 650);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //this.setResizable(false);
         this.getContentPane().setBackground(new Color(30, 30, 30));
 
-        this.setContentPane(homeView);
+        this.setContentPane(loginView);
 
         this.setVisible(true);
     }

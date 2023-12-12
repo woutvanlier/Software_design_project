@@ -20,7 +20,8 @@ public class HomeView extends JPanel
     SeparatorPanel separatorPanel;
     JScrollPane scrollPane;
 
-    public HomeView(FrameManager frameManager, Person_database personDatabase, Ticket_database ticketDatabase)
+
+    public HomeView(FrameManager frameManager, Person_database personDatabase, Ticket_database ticketDatabase, LoginView loginview)
     {
         this.setBackground(new Color(30,30,30));
 
@@ -48,7 +49,7 @@ public class HomeView extends JPanel
         this.add(separatorPanel,c);
 
         // Log
-        logPanel = new LogPanel(this, frameManager);
+        logPanel = new LogPanel(loginview,this, frameManager);
         logPanel.setOpaque(false);
         //region >> Constraints
         c.gridy = 2;
@@ -68,7 +69,7 @@ public class HomeView extends JPanel
         //endregion
         this.add(scrollPane, c);
 
-        AllButtons allButtons = new AllButtons(logPanel, frameManager, this);
+        AllButtons allButtons = new AllButtons(logPanel, frameManager, this, loginview);
         allButtons.setLayout(new GridLayout(1,1));
         allButtons.setOpaque(false);
         allButtons.setBackground(new Color(30,30,30));

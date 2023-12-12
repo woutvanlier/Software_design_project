@@ -1,7 +1,13 @@
 package UI.TicketPanels;
 
+import Person.Person;
+import UI.Panels.TitlePanel;
+import database.Person_database;
+
 import javax.swing.*;
 import java.awt.*;
+import java.util.HashMap;
+import java.util.Objects;
 
 public class TicketPanel extends JPanel
 {
@@ -9,8 +15,13 @@ public class TicketPanel extends JPanel
     JComboBox<String> catNamePane;
     JComboBox<String> personNamePane;
     JTextField priceNameField;
-    public TicketPanel()
+
+    JTextField dateField;
+
+    String Split;
+    public TicketPanel(Person_database p_db)
     {
+        this.setBackground(new Color(30,30,30));
         JLabel ticketName = new JLabel("Ticket Name");
         ticketName.setOpaque(true);
         ticketName.setBackground(new Color(30,30,30));
@@ -36,7 +47,7 @@ public class TicketPanel extends JPanel
         personName.setForeground(Color.white);
         this.add(personName);
 
-        String[] personChoises={"Eliott","Thomas","Wout"};
+        String[] personChoises=p_db.getDbArray();
         personNamePane = new JComboBox<>(personChoises);
         this.add(personNamePane);
 
@@ -48,6 +59,15 @@ public class TicketPanel extends JPanel
 
         priceNameField = new JTextField();
         this.add(priceNameField);
+
+        JLabel date = new JLabel("Date");
+        date.setOpaque(true);
+        date.setBackground(new Color(30,30,30));
+        date.setForeground(Color.white);
+        this.add(date);
+
+        dateField = new JTextField();
+        this.add(dateField);
 
         JRadioButton even = new JRadioButton("Split even");
         even.setOpaque(true);
@@ -64,6 +84,12 @@ public class TicketPanel extends JPanel
 
         this.add(even);
         this.add(uneven);
+        even.addActionListener(e -> {
+            Split = "even";
+        });
+        uneven.addActionListener(e -> {
+            Split = "uneven";
+            });
     }
 
     public JTextField getTicketNameField() {
@@ -81,4 +107,11 @@ public class TicketPanel extends JPanel
     public JTextField getPriceNameField() {
         return priceNameField;
     }
+
+    public JTextField getDateField(){return dateField;}
+
+    public String getSplit() {
+        return Split;
+    }
+
 }

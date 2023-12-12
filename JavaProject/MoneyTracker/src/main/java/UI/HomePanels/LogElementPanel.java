@@ -4,14 +4,17 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.File;
 
+import Person.Person;
+import Ticket.Abstract_ticket;
+
 public class LogElementPanel extends JPanel
 {
-    public LogElementPanel(String ticketName, String price, String personPaying, String cat)
+    public LogElementPanel(Abstract_ticket ticket, Person person)
     {
         this.setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
 
-        ImageIcon icon = new ImageIcon(getCategory(cat));
+        ImageIcon icon = new ImageIcon(getCategory(ticket.getTypeOfTicket()));
         Image img = icon.getImage();
         Image newImg = img.getScaledInstance( 25, 25,  Image.SCALE_SMOOTH );
         icon = new ImageIcon(newImg);
@@ -24,7 +27,7 @@ public class LogElementPanel extends JPanel
         //endregion
         this.add(label, c);
 
-        JLabel nameTicket = new JLabel(ticketName);
+        JLabel nameTicket = new JLabel(ticket.getTicketName());
         Font font = new Font(nameTicket.getFont().toString(), Font.BOLD,12);
         nameTicket.setFont(font);
         //region >> Constraints
@@ -38,7 +41,7 @@ public class LogElementPanel extends JPanel
         //endregion
         this.add(nameTicket, c);
 
-        JLabel personPaid = new JLabel(personPaying + " paid €" + price);
+        JLabel personPaid = new JLabel(ticket.getTicketHolder() + " paid €" + ticket.getPrice());
         personPaid.setForeground(new Color(80,80,80));
         font = new Font(personPaid.getFont().toString(), Font.PLAIN,8);
         personPaid.setFont(font);
@@ -64,7 +67,7 @@ public class LogElementPanel extends JPanel
         //endregion
         this.add(borrowedOrPaid,c);
 
-        JLabel priceLabel = new JLabel("€250");
+        JLabel priceLabel = new JLabel(Double.toString(ticket.showOwed(person.getFullName())));
         font = new Font(priceLabel.getFont().toString(), Font.BOLD,12);
         priceLabel.setFont(font);
         //region >> Constraints

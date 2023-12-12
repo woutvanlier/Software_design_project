@@ -2,6 +2,7 @@ package UI.ResultPanels;
 
 import Person.Person;
 import UI.FrameManager;
+import UI.Views.LoginView;
 import database.Person_database;
 
 import javax.swing.*;
@@ -9,20 +10,22 @@ import java.awt.*;
 
 public class BalancePanel extends JPanel
 {
+    LoginView loginView;
     int layoutY = 0;
     GridBagLayout gridLayout;
-    public BalancePanel(FrameManager frameManager)
+
+    public BalancePanel(FrameManager frameManager, LoginView loginView)
     {
         this.setLayout(new GridBagLayout());
 
         gridLayout = new GridBagLayout();
         this.setLayout(gridLayout);
-
-        for(Person person : frameManager.getPersonDatabase().getDb())
-            addElement(frameManager, person);
+        this.loginView = loginView;
+        addElement(frameManager, loginView.getLoginPerson(), false);
+        addElement(frameManager, loginView.getLoginPerson(), true);
     }
 
-    public void addElement(FrameManager frameManager, Person person)
+    public void addElement(FrameManager frameManager, Person person, boolean OwedToYou)
     {
         /*if(layoutY == 0)
         {
@@ -35,7 +38,7 @@ public class BalancePanel extends JPanel
         c.weighty = 0.0;
         c.fill = GridBagConstraints.HORIZONTAL;
         c.weightx = 1.0;
-        this.add(new BalanceElementPanel(frameManager.getPersonDatabase(), person));
+        this.add(new BalanceElementPanel(frameManager.getPersonDatabase(), person, OwedToYou));
 
         for(int i=0; i<this.getComponentCount()-1; i++)
         {

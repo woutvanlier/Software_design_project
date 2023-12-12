@@ -1,6 +1,6 @@
 package database;
 
-import Ticket.Ticket;
+import Ticket.Abstract_ticket;
 
 import java.beans.PropertyChangeEvent;
 import java.util.ArrayList;
@@ -10,15 +10,15 @@ public class Ticket_database extends Database
 {
     private static Ticket_database singletonDB;
 
-    public List<Ticket> getDb() {
+    public List<Abstract_ticket> getDb() {
         return db;
     }
 
-    private final List<Ticket> db;
+    private final List<Abstract_ticket> db;
     
     private Ticket_database()
     {
-        db = new ArrayList<Ticket>();
+        db = new ArrayList<Abstract_ticket>();
     }
 
     // Singleton Constructor
@@ -30,7 +30,7 @@ public class Ticket_database extends Database
         return singletonDB;
     }
 
-    public void addTicket(Ticket ticket)
+    public void addTicket(Abstract_ticket ticket)
     {
         if (db.size() != 0) {
             PropertyChangeEvent event = new PropertyChangeEvent(this,"database",db.get(db.size() - 1), ticket);
@@ -39,7 +39,7 @@ public class Ticket_database extends Database
         db.add(ticket);
     }
     
-    public Ticket getTicket(String name)
+    public Abstract_ticket getTicket(String name)
     {
         return findInDatabase(name);
     }
@@ -51,12 +51,12 @@ public class Ticket_database extends Database
     }
 
     // Searches for the ticket by name and returns null if not found
-    private Ticket findInDatabase(String name)
+    private Abstract_ticket findInDatabase(String name)
     {
-        for (Ticket ticket : db)
+        for (Abstract_ticket ticket : db)
         {
-            if (name == ticket.getName()) {
-                ticket.setName(name);
+            if (name == ticket.getTicketName()) {
+                ticket.setTicketName(name);
                 return ticket;
             }
         }

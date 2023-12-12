@@ -10,7 +10,7 @@ import java.util.List;
 public class Person_database extends Database
 {
     private static Person_database singletonDB;
-    private final List<Person> db;
+    private List<Person> db;
 
 
     private Person_database()
@@ -38,6 +38,13 @@ public class Person_database extends Database
             }
             db.add(person);
         }         
+    }
+    public String[] getDbArray(){
+        List<String> names = new ArrayList<>();
+        for(Person p : this.db){
+            names.add(p.getFullName());
+        }
+        return names.toArray(new String[0]);
     }
 
     public int getAmountOfPersons(){
@@ -73,5 +80,12 @@ public class Person_database extends Database
             }
         }
         return null;
+    }
+    public List<String> getdbNames(){
+        List<String> dbNames = new ArrayList<>();
+        for (Person p: db){
+            dbNames.add(p.getFullName());
+        }
+        return dbNames;
     }
 }
