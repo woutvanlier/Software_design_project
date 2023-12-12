@@ -80,4 +80,5 @@ public class Split_unevenly extends Abstract_decorator {
     public void setPrices(HashMap<String, Double> prices) {
         this.prices = prices;
     }
+
 }

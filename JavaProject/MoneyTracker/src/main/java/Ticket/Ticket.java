@@ -34,7 +34,6 @@ public class Ticket implements Abstract_ticket {
 
     @Override
     public void setPayed(String person) {}
-
     @Override
     public double calcOwedToHolder() {
         return 0;
@@ -72,6 +71,5 @@ public class Ticket implements Abstract_ticket {
     public String getDate() {return date;}
 
     public void setDate(String date) {this.date = date;}
-
 
 }

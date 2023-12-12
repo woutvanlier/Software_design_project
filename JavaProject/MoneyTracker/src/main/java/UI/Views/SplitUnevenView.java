@@ -20,7 +20,13 @@ public class SplitUnevenView extends JPanel {
     private HashMap<String, Double> PriceMap = new HashMap<>();
     private JTextField[] arrOfPrices = new JTextField[30];
     private JLabel[] arrOfNames = new JLabel[30];
+    private FrameManager frameManager;
+    private TicketPanel ticketPanel;
+    private TicketView ticketView;
     public SplitUnevenView(FrameManager frameManager, LoginView loginView, TicketPanel ticketPanel, LogPanel logPanel, TicketView ticketView, HomeView homeView) {
+        this.ticketView = ticketView;
+        this.frameManager = frameManager;
+        this.ticketPanel = ticketPanel;
         this.setLayout(new GridLayout(20,10));
         this.setBackground(new Color(30,30,30));
         GridBagConstraints titleConstraints = new GridBagConstraints();
@@ -59,24 +65,52 @@ public class SplitUnevenView extends JPanel {
                 i+=1;
             }
         }
+        JLabel Error = new JLabel("Amount exceeded ticket value!");
+        Error.setForeground(new Color(120,30,30));
+        Error.setBackground(new Color(30,30,30));
+        Error.setOpaque(false);
+        Error.setVisible(false);
+        c.gridx = 0;
+        c.gridy = gridy+1;
+        this.add(Error,c);
         JButton addPrices = new JButton("Add Prices");
         addPrices.addActionListener(e -> {
-            double price;
-            String name;
-            System.out.println(arrOfPrices.length);
-            for (int it = 0; it < arrOfPrices.length; it++){
-                if(arrOfPrices[it]!=null){
-                price = Double.parseDouble(arrOfPrices[it].getText());
-                name = arrOfNames[it].getText();
-                PriceMap.put(name,price);}
-            }
+            boolean completed = fillPriceMap();
+            if(!completed){
+                for (JTextField arrOfPrice : arrOfPrices) {
+                    if(arrOfPrice!=null){
+                        arrOfPrice.setText("");
+                    }
+                }
+                Error.setVisible(true);
+            }else{
+            Error.setVisible(false);
             Abstract_ticket newTicket = TicketFactory.createTicket_unevenly_withMap(ticketView.getTicketName(), ticketView.getPersonPaid(), ticketView.getPricePaid(), ticketView.getDatePaid(), ticketView.getTicketCat(),PriceMap);
             Ticket_database.getInstance().addTicket(newTicket);
-            if(!Objects.equals(loginView.getLoginName(),ticketView.getPersonPaid())){
-                logPanel.addElement(newTicket, loginView.getLoginPerson(),frameManager);}
+            logPanel.addElement(newTicket, loginView.getLoginPerson(),frameManager);
             frameManager.setContentPane(homeView);
-            frameManager.revalidate();
+            frameManager.revalidate();}
         });
         this.add(addPrices);
+    }
+    public boolean fillPriceMap(){
+        boolean completed = true;
+        double totalprice = 0;
+        double price;
+        String name;
+        System.out.println(arrOfPrices.length);
+        for (int it = 0; it < arrOfPrices.length; it++){
+            if(arrOfPrices[it]!=null){
+                price = Double.parseDouble(arrOfPrices[it].getText());
+                totalprice += price;
+                name = arrOfNames[it].getText();
+                if(totalprice > ticketView.getPricePaid()){
+                    completed = false;
+                    break;
+                }else{
+                    PriceMap.put(name,price);
+                }}
+        }
+        return completed;
     }
 }

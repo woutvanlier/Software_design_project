@@ -7,6 +7,8 @@ import java.io.File;
 import Person.Person;
 import Ticket.Abstract_ticket;
 
+import java.text.DecimalFormat;
+import java.util.Objects;
 public class LogElementPanel extends JPanel
 {
     public LogElementPanel(Abstract_ticket ticket, Person person)
@@ -40,10 +42,21 @@ public class LogElementPanel extends JPanel
         c.anchor = GridBagConstraints.LINE_START;
         //endregion
         this.add(nameTicket, c);
-
-        JLabel personPaid = new JLabel(ticket.getTicketHolder() + " paid €" + ticket.getPrice());
-        personPaid.setForeground(new Color(80,80,80));
-        font = new Font(personPaid.getFont().toString(), Font.PLAIN,8);
+        String ticketholder;
+        String owedOrborrowed;
+        Color borrowedOrPaidC;
+        if(Objects.equals(ticket.getTicketHolder(),person.getFullName())){
+            ticketholder = "You";
+            owedOrborrowed = "You lent";
+            borrowedOrPaidC = new Color(120,30,30);
+        }else {
+            ticketholder = ticket.getTicketHolder();
+            owedOrborrowed = "You owe";
+            borrowedOrPaidC = new Color(30,120,30);
+        }
+        JLabel personPaid = new JLabel(ticketholder + " paid €" + ticket.getPrice());
+        personPaid.setForeground(new Color(80, 80, 80));
+        font = new Font(personPaid.getFont().toString(), Font.PLAIN, 8);
         personPaid.setFont(font);
         //region >> Constraints
         c.gridx = 1;
@@ -51,11 +64,11 @@ public class LogElementPanel extends JPanel
         c.insets.top = 0;
         c.insets.bottom = 3;
         //endregion
-        this.add(personPaid,c);
+        this.add(personPaid, c);
 
-        JLabel borrowedOrPaid = new JLabel("You  borrowed");
-        borrowedOrPaid.setForeground(new Color(30, 120, 30));
-        font = new Font(borrowedOrPaid.getFont().toString(), Font.BOLD,10);
+        JLabel borrowedOrPaid = new JLabel(owedOrborrowed);
+        borrowedOrPaid.setForeground(borrowedOrPaidC);
+        font = new Font(borrowedOrPaid.getFont().toString(), Font.BOLD, 10);
         borrowedOrPaid.setFont(font);
         //region >> Constraints
         c.gridx = 2;
@@ -65,9 +78,9 @@ public class LogElementPanel extends JPanel
         c.insets.right = 5;
         c.insets.bottom = 0;
         //endregion
-        this.add(borrowedOrPaid,c);
-
-        JLabel priceLabel = new JLabel(Double.toString(ticket.showOwed(person.getFullName())));
+        this.add(borrowedOrPaid, c);
+        DecimalFormat df = new DecimalFormat("0.00");
+        JLabel priceLabel = new JLabel(df.format(ticket.showOwed(person.getFullName())));
         font = new Font(priceLabel.getFont().toString(), Font.BOLD,12);
         priceLabel.setFont(font);
         //region >> Constraints

@@ -45,9 +45,8 @@ public class LogPanel extends JPanel
 
         for (Abstract_ticket t : frameManager.getTicketDatabase().getDb())
         {
-            if(!Objects.equals(loginPerson.getFullName(), t.getTicketHolder())){
-                addElement(t,loginPerson, frameManager);}
-        }
+                addElement(t,loginPerson, frameManager);
+            }
     }
 
     public void addElement(Abstract_ticket ticket, Person person, FrameManager frameManager)
