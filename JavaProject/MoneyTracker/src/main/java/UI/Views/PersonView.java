@@ -53,7 +53,7 @@ public class PersonView extends JPanel
         this.add(personPanel, c);
 
         //Error
-        errorLabel = new JLabel("ERROR : Choose a valid name!", SwingConstants.CENTER);
+        errorLabel = new JLabel("ERROR : Type a valid name!", SwingConstants.CENTER);
         errorLabel.setForeground(Color.red);
         errorLabel.setVisible(false);
         c.gridy = 3;

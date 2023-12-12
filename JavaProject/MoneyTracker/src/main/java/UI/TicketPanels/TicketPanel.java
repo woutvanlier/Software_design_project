@@ -22,52 +22,80 @@ public class TicketPanel extends JPanel
     public TicketPanel(Person_database p_db)
     {
         this.setBackground(new Color(30,30,30));
+        this.setLayout(new GridBagLayout());
+        GridBagConstraints c = new GridBagConstraints();
+
+
         JLabel ticketName = new JLabel("Ticket Name");
         ticketName.setOpaque(true);
         ticketName.setBackground(new Color(30,30,30));
         ticketName.setForeground(Color.white);
-        this.add(ticketName);
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.weightx = 1.0;
+        c.insets.bottom = 10;
+        c.gridx = 0;
+        c.gridy = 0;
+        this.add(ticketName, c);
 
         ticketNameField = new JTextField();
-        this.add(ticketNameField);
+        c.gridx = 1;
+        c.gridy = 0;
+        this.add(ticketNameField, c);
 
         JLabel catName = new JLabel("Category");
         catName.setOpaque(true);
         catName.setBackground(new Color(30,30,30));
         catName.setForeground(Color.white);
-        this.add(catName);
+        c.insets.top = 10;
+        c.gridx = 0;
+        c.gridy = 1;
+        this.add(catName, c);
 
         String[] catChoices ={"Food & Drinks","Transportation","Accommodation", "Entertainment", "Other"};
         catNamePane = new JComboBox<>(catChoices);
-        this.add(catNamePane);
+        c.gridx = 1;
+        c.gridy = 1;
+        this.add(catNamePane, c);
 
         JLabel personName = new JLabel("Person Paid");
         personName.setOpaque(true);
         personName.setBackground(new Color(30,30,30));
         personName.setForeground(Color.white);
-        this.add(personName);
+        c.gridx = 0;
+        c.gridy = 2;
+        this.add(personName, c);
 
         String[] personChoises=p_db.getDbArray();
         personNamePane = new JComboBox<>(personChoises);
-        this.add(personNamePane);
+        c.gridx = 1;
+        c.gridy = 2;
+        this.add(personNamePane, c);
 
         JLabel priceName = new JLabel("Price");
         priceName.setOpaque(true);
         priceName.setBackground(new Color(30,30,30));
         priceName.setForeground(Color.white);
-        this.add(priceName);
+        c.gridx = 0;
+        c.gridy = 3;
+        this.add(priceName, c);
 
         priceNameField = new JTextField();
-        this.add(priceNameField);
+        c.gridx = 1;
+        c.gridy = 3;
+        this.add(priceNameField, c);
 
         JLabel date = new JLabel("Date");
         date.setOpaque(true);
         date.setBackground(new Color(30,30,30));
         date.setForeground(Color.white);
-        this.add(date);
+        c.gridx = 0;
+        c.gridy = 4;
+        this.add(date, c);
 
         dateField = new JTextField();
-        this.add(dateField);
+        c.gridx = 1;
+        c.gridy = 4;
+        this.add(dateField, c);
 
         JRadioButton even = new JRadioButton("Split even");
         even.setOpaque(true);
@@ -82,8 +110,13 @@ public class TicketPanel extends JPanel
         radioGroup.add(even);
         radioGroup.add(uneven);
 
-        this.add(even);
-        this.add(uneven);
+        c.insets.bottom = 0;
+        c.gridx = 0;
+        c.gridy = 5;
+        this.add(even, c);
+        c.gridx = 1;
+        c.gridy = 5;
+        this.add(uneven, c);
         even.addActionListener(e -> {
             Split = "even";
         });

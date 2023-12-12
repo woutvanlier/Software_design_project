@@ -29,7 +29,7 @@ public class HomeView extends JPanel
         GridBagConstraints c = new GridBagConstraints();
 
         // Title
-        titlePanel = new TitlePanel("S P L I T W I S E");
+        titlePanel = new TitlePanel("M O N E Y   T R A C K E R");
         titlePanel.setLayout(new GridLayout(1,1));
         //region >> Constraints
         c.gridy = 0;

@@ -17,7 +17,7 @@ public class ResultButtonPanel extends JPanel
         String src = new File("src/main/java/UI/Resources/button2.png").getAbsolutePath();;
         ImageIcon icon = new ImageIcon(src);
         Image img = icon.getImage();
-        Image newImg = img.getScaledInstance( 70, 50,  Image.SCALE_SMOOTH );
+        Image newImg = img.getScaledInstance( 75, 44,  Image.SCALE_SMOOTH );
         icon = new ImageIcon(newImg);
         JButton button = new JButton(icon);
 
@@ -25,7 +25,7 @@ public class ResultButtonPanel extends JPanel
         button.setContentAreaFilled(false);
         button.setBorderPainted(false);
 
-        button.setPreferredSize(new Dimension(70,50));
+        button.setPreferredSize(new Dimension(75,44));
 
         button.addActionListener(e ->
         {

@@ -43,7 +43,6 @@ public class TicketView extends JPanel
 
         // TicketPane
         ticketPanel = new TicketPanel(frameManager.getPersonDatabase());
-        ticketPanel.setLayout(new GridLayout(10,1));
         //region >> Constraints
         c.gridy = 2;
         c.weighty = 1.0;
