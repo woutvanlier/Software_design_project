@@ -12,6 +12,7 @@ public class SignOutButtonPanel extends JPanel
         JButton button = new JButton("SIGN OUT");
         button.addActionListener(e ->
         {
+            loginView.UpdateLogInBox();
             frameManager.setContentPane(loginView);
             frameManager.revalidate();
         });

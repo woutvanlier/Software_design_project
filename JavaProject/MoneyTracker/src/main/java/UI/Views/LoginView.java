@@ -14,8 +14,11 @@ public class LoginView extends JPanel {
     TitlePanel titlePanel;
     JComboBox<String> LoginNamePane;
 
+    FrameManager frameManager;
     String LoginName;
-    public LoginView(FrameManager frameManager, Person_database p_db, Ticket_database t_db) {
+    public LoginView(FrameManager frameManager, Person_database p_db, Ticket_database t_db)
+    {
+        this.frameManager = frameManager;
         this.setLayout(new GridLayout(3,2));
         this.setBackground(new Color(30, 30, 30));
 
@@ -40,7 +43,9 @@ public class LoginView extends JPanel {
         this.add(Login, loginLabelConstraints);
 
         String[] LoginChoices = p_db.getDbArray();
-        LoginNamePane = new JComboBox<>(LoginChoices);
+        LoginNamePane = new JComboBox<>();
+        DefaultComboBoxModel model = new DefaultComboBoxModel(LoginChoices);
+        LoginNamePane.setModel(model);
         GridBagConstraints loginPaneConstraints = new GridBagConstraints();
         loginPaneConstraints.gridx = 3;
         loginPaneConstraints.gridy = 1;
@@ -78,5 +83,12 @@ public class LoginView extends JPanel {
     }
     public Person getLoginPerson(){
         return Person_database.getInstance().getPerson(getLoginName());
+    }
+
+    public void UpdateLogInBox()
+    {
+        String[] LoginChoices = frameManager.getPersonDatabase().getDbArray();
+        DefaultComboBoxModel model = new DefaultComboBoxModel(LoginChoices);
+        LoginNamePane.setModel(model);
     }
 }
