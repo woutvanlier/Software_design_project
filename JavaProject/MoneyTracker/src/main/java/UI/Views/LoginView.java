@@ -39,8 +39,7 @@ public class LoginView extends JPanel {
         loginLabelConstraints.gridy = 1;
         this.add(Login, loginLabelConstraints);
 
-        String[] LoginChoices = new String[p_db.getDb().size()];
-        LoginChoices = p_db.getdbNames().toArray(LoginChoices);
+        String[] LoginChoices = p_db.getDbArray();
         LoginNamePane = new JComboBox<>(LoginChoices);
         GridBagConstraints loginPaneConstraints = new GridBagConstraints();
         loginPaneConstraints.gridx = 3;
