@@ -6,8 +6,7 @@ import database.Person_database;
 import database.Ticket_database;
 import Ticket.Split_evenly;
 import Ticket.Split_unevenly;
-import Ticket.TicketFactory;
-import Ticket.Abstract_ticket;
+
 import java.awt.*;
 
 public class Main
@@ -30,6 +29,7 @@ public class Main
         Person person3 = PersonFactory.createPerson("Wout");
         Person person4 = PersonFactory.createPerson("Tomas");
 
+
         personDB.addPerson(person1);
         personDB.addPerson(person2);
         personDB.addPerson(person3);
@@ -43,18 +43,19 @@ public class Main
 
         System.out.println(ticketDB);
 
-        Abstract_ticket ticket1 = TicketFactory.createTicket_even("Restaurant1","Eliott", 45.2,"10/02/2023", "Restaurant");
-        Abstract_ticket ticket2 = TicketFactory.createTicket_unevenly("Restaurant2","Wout", 45.2,"11/02/2023", "Restaurant");
-        Abstract_ticket ticket3 = TicketFactory.createTicket_even("Concert1","Thomas", 300.25,"18/02/2023", "Concert");
-        Abstract_ticket ticket4 = TicketFactory.createTicket_even("Airplane1","Eliott", 845,"20/02/2023", "Airplane");
+        Ticket ticket1 = new Ticket("Eliottt", 45.2,"10/02/2023", "Restaurant");
+        Ticket ticket2 = new Ticket("Wout", 45.2,"11/02/2023", "Restaurant");
+        Ticket ticket3 = new Ticket("Thomas", 300.25,"18/02/2023", "Concert");
+        Ticket ticket4 = new Ticket("Eliottt", 845,"20/02/2023", "Airplane");
 
 
-        //Split_evenly ticket_even = new Split_evenly(ticket1);
-        //Split_unevenly ticket_uneven = new Split_unevenly(ticket3);
+        Split_evenly ticket_even = new Split_evenly(ticket1);
+        Split_unevenly ticket_uneven = new Split_unevenly(ticket3);
 
         System.out.println(Person_database.getInstance().getAmountOfPersons());
 
         //ticket_even.showOwed("Eliott");
+
 
         ticketDB.addTicket(ticket1);
         ticketDB.addTicket(ticket2);
@@ -62,6 +63,7 @@ public class Main
         ticketDB.addTicket(ticket4);
 
         System.out.println(ticketDB);
+
 
         FrameManager frameManager = new FrameManager();
         frameManager.initialize(personDB, ticketDB);
