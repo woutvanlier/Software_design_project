@@ -1,12 +1,17 @@
 package UI.PersonPanels;
 
+import UI.FrameManager;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 
 public class UserPanel extends JPanel
 {
-    public UserPanel(String name)
+    String name;
+    public UserPanel(String name, PersonPanel personPanel)
     {
+        this.name = name;
         this.setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
 
@@ -17,9 +22,17 @@ public class UserPanel extends JPanel
         this.add(label, c);
 
         JButton button = new JButton("x");
+        button.addActionListener(e ->
+        {
+            personPanel.removePerson(name);
+        });
         c.gridx = 1;
         c.weightx = 0.0;
         c.anchor = GridBagConstraints.LINE_END;
         this.add(button, c);
+    }
+
+    public String getName() {
+        return name;
     }
 }

@@ -13,6 +13,7 @@ import java.awt.*;
 
 public class PersonView extends JPanel
 {
+    JLabel errorLabel;
     public PersonView(HomeView homeview, FrameManager frameManager, Person_database personDatabase)
     {
         this.setBackground(new Color(30,30,30));
@@ -42,7 +43,7 @@ public class PersonView extends JPanel
 
         // PersonPane
         JTextField personName = new JTextField();
-        PersonPanel personPanel = new PersonPanel(personName, personDatabase);
+        PersonPanel personPanel = new PersonPanel(personName, frameManager);
         personPanel.setLayout(new GridLayout(0,1));
         //region >> Constraints
         c.gridy = 2;
@@ -51,12 +52,22 @@ public class PersonView extends JPanel
         //endregion
         this.add(personPanel, c);
 
+        //Error
+        errorLabel = new JLabel("ERROR : Choose a valid name!", SwingConstants.CENTER);
+        errorLabel.setForeground(Color.red);
+        errorLabel.setVisible(false);
+        c.gridy = 3;
+        c.insets.bottom = 0;
+        c.anchor = GridBagConstraints.PAGE_END;
+        c.weighty = 0.0;
+        this.add(errorLabel, c);
+
         //Button
-        AddPersonButtonPanel addPerson = new AddPersonButtonPanel(personPanel, personName, personDatabase);
+        AddPersonButtonPanel addPerson = new AddPersonButtonPanel(personPanel, personName, personDatabase, this);
         addPerson.setLayout(new GridLayout(1,1));
         //region >> Constraints
         c.weighty = 0.0;
-        c.gridy = 3;
+        c.gridy = 4;
         c.insets.bottom = 0;
         c.anchor = GridBagConstraints.PAGE_END;
         //endregion
@@ -66,10 +77,15 @@ public class PersonView extends JPanel
         BackButtonPanel backButton = new BackButtonPanel(frameManager, homeview);
         backButton.setLayout(new GridLayout(1,1));
         //region >> Constraints
-        c.gridy = 4;
+        c.gridy = 5;
         c.insets.bottom = 20;
         c.insets.top = 5;
         //endregion
         this.add(backButton, c);
+    }
+
+    public void setError(boolean isOn)
+    {
+        errorLabel.setVisible(isOn);
     }
 }

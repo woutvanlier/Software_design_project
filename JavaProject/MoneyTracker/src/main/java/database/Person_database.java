@@ -37,7 +37,26 @@ public class Person_database extends Database
                 listenerManager.firePropertyChange(event);
             }
             db.add(person);
-        }         
+        }
+        else
+        {
+            System.out.println("Person already exists");
+        }
+    }
+
+    public void removePerson(String personName)
+    {
+        Person personToBeRemoved = null;
+        for(Person person : db)
+        {
+            if(personName == person.getFullName())
+            {
+                personToBeRemoved = person;
+            }
+        }
+        
+        if(personToBeRemoved != null)
+            db.remove(personToBeRemoved);
     }
     public String[] getDbArray(){
         List<String> names = new ArrayList<>();
