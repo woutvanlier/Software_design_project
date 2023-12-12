@@ -6,9 +6,12 @@ import UI.Views.LoginView;
 
 import javax.swing.*;
 import java.awt.*;
+import  UI.ButtonSound;
 
 public class LoginPanel extends JPanel
 {
+
+    ButtonSound buttonSound = new ButtonSound();
     public LoginPanel(JComboBox LoginNamePane, JButton LoginButton, LoginView loginView, FrameManager frameManager)
     {
         this.setBackground(new Color(30,30,30));
@@ -44,6 +47,8 @@ public class LoginPanel extends JPanel
             HomeView homeView = new HomeView(frameManager, frameManager.getPersonDatabase(), frameManager.getTicketDatabase(),loginView);
             frameManager.setContentPane(homeView);
             frameManager.revalidate();
+            buttonSound.playSound("src/main/java/UI/tap.wav");
+
         });
     }
 }

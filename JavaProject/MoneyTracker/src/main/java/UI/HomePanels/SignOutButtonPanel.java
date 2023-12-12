@@ -7,9 +7,12 @@ import UI.Views.TicketView;
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
+import UI.ButtonSound;
 
 public class SignOutButtonPanel extends JPanel
 {
+    ButtonSound buttonSound = new ButtonSound();
+
     public SignOutButtonPanel(FrameManager frameManager, LoginView loginView)
     {
         String src = new File("src/main/java/UI/Resources/button4.png").getAbsolutePath();
@@ -30,6 +33,7 @@ public class SignOutButtonPanel extends JPanel
             loginView.UpdateLogInBox();
             frameManager.setContentPane(loginView);
             frameManager.revalidate();
+            buttonSound.playSound("src/main/java/UI/dong.wav");
         });
 
         this.add(button);

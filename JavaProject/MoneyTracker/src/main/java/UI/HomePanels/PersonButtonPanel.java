@@ -8,9 +8,13 @@ import database.Person_database;
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
+import  UI.ButtonSound;
 
 public class PersonButtonPanel extends JPanel
 {
+
+    ButtonSound buttonSound = new ButtonSound();
+
     public PersonButtonPanel(FrameManager frameManager, HomeView homeView)
     {
         String src = new File("src/main/java/UI/Resources/button1.png").getAbsolutePath();
@@ -31,6 +35,7 @@ public class PersonButtonPanel extends JPanel
             PersonView personView = new PersonView(homeView, frameManager, frameManager.getPersonDatabase());
             frameManager.setContentPane(personView);
             frameManager.revalidate();
+            buttonSound.playSound("src/main/java/UI/tap.wav");
         });
         this.add(button);
     }
