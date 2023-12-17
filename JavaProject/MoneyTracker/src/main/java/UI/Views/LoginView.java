@@ -80,4 +80,11 @@ public class LoginView extends JPanel {
         DefaultComboBoxModel model = new DefaultComboBoxModel(LoginChoices);
         LoginNamePane.setModel(model);
     }
+
+    public void ResetLogin()
+    {
+        String[] LoginChoices = frameManager.getPersonDatabase().getDbArray();
+        LoginName = LoginChoices[0];
+        LogInButton.setText("Login as "+ LoginName);
+    }
 }

@@ -95,6 +95,6 @@ public class TicketView extends JPanel
         return ticketPanel.getCatNamePane().getSelectedItem().toString();
     }
 
-    public String getDatePaid(){return ticketPanel.getDateField().getText();}
+    public String getDatePaid(){return ticketPanel.getDatePicker().getModel().getValue().toString();}
 
 }

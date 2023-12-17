@@ -3,11 +3,16 @@ package UI.TicketPanels;
 import Person.Person;
 import UI.Panels.TitlePanel;
 import database.Person_database;
+import org.jdatepicker.impl.JDatePanelImpl;
+import org.jdatepicker.impl.JDatePickerImpl;
+import org.jdatepicker.impl.UtilDateModel;
 
 import javax.swing.*;
+import javax.swing.text.DateFormatter;
 import java.awt.*;
 import java.util.HashMap;
 import java.util.Objects;
+import java.util.Properties;
 
 public class TicketPanel extends JPanel
 {
@@ -16,7 +21,7 @@ public class TicketPanel extends JPanel
     JComboBox<String> personNamePane;
     JTextField priceNameField;
 
-    JTextField dateField;
+    JDatePickerImpl datePicker;
 
     String Split;
     public TicketPanel(Person_database p_db)
@@ -92,10 +97,20 @@ public class TicketPanel extends JPanel
         c.gridy = 4;
         this.add(date, c);
 
-        dateField = new JTextField();
+
+        UtilDateModel model = new UtilDateModel();
+        model.setDate(2023,11,12);
+        // Need this...
+        Properties p = new Properties();
+        p.put("text.today", "Today");
+        p.put("text.month", "Month");
+        p.put("text.year", "Year");
+        JDatePanelImpl datePanel = new JDatePanelImpl(model, p);
+        // Don't know about the formatter, but there it is...
+        datePicker = new JDatePickerImpl(datePanel, new DateLabelFormatter());
         c.gridx = 1;
         c.gridy = 4;
-        this.add(dateField, c);
+        this.add(datePicker, c);
 
         JRadioButton even = new JRadioButton("Split even");
         even.setOpaque(true);
@@ -141,10 +156,13 @@ public class TicketPanel extends JPanel
         return priceNameField;
     }
 
-    public JTextField getDateField(){return dateField;}
+    //public JTextField getDateField(){return dateField;}
 
     public String getSplit() {
         return Split;
     }
 
+    public JDatePickerImpl getDatePicker() {
+        return datePicker;
+    }
 }
