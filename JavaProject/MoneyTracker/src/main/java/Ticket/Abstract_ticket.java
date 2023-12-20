@@ -21,4 +21,6 @@ public interface Abstract_ticket {
      void setPayed(String name);
 
      double calcOwedToHolder();
+
+     double showOwedToHolder();
 }

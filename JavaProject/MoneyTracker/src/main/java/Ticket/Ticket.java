@@ -1,12 +1,8 @@
 package Ticket;
 
-import Person.Person;
-import database.Ticket_database;
-
 public class Ticket implements Abstract_ticket {
 
     private String TicketHolder;
-
     private String typeOfTicket;
 
     private String TicketName;
@@ -36,6 +32,11 @@ public class Ticket implements Abstract_ticket {
     public void setPayed(String person) {}
     @Override
     public double calcOwedToHolder() {
+        return 0;
+    }
+
+    @Override
+    public double showOwedToHolder() {
         return 0;
     }
 

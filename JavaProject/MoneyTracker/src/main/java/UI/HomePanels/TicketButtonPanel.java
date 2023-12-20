@@ -9,7 +9,6 @@ import UI.Views.TicketView;
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
-import  UI.ButtonSound;
 
 public class TicketButtonPanel extends JPanel
 {

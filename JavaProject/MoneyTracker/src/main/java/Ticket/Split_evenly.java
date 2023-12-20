@@ -1,5 +1,4 @@
 package Ticket;
-import Person.Person;
 import database.Person_database;
 
 // Everybody should pay the same: ticket is split evenly
@@ -21,6 +20,11 @@ public class Split_evenly extends Abstract_decorator {
         double owed = 0;
         owed = this.getPrice() - this.PricePerPerson;
         return owed;
+    }
+
+    @Override
+    public double showOwedToHolder() {
+        return this.getPrice() - PricePerPerson;
     }
 
     public double calculatePricePerPerson(){

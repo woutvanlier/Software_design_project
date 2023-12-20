@@ -9,13 +9,8 @@ import java.util.List;
 public class Ticket_database extends Database
 {
     private static Ticket_database singletonDB;
-
-    public List<Abstract_ticket> getDb() {
-        return db;
-    }
-
     private final List<Abstract_ticket> db;
-    
+
     private Ticket_database()
     {
         db = new ArrayList<Abstract_ticket>();
@@ -30,6 +25,12 @@ public class Ticket_database extends Database
         return singletonDB;
     }
 
+    public List<Abstract_ticket> getDb() {
+        return db;
+    }
+
+
+
     public void addTicket(Abstract_ticket ticket)
     {
         if (db.size() != 0) {
@@ -38,12 +39,7 @@ public class Ticket_database extends Database
         }
         db.add(ticket);
     }
-    
-    public Abstract_ticket getTicket(String name)
-    {
-        return findInDatabase(name);
-    }
-    
+
     public void changeNameOnTicket(String oldname,String newname, Person_database personDatabase)
     {
         personDatabase.changeFullName(oldname,newname);

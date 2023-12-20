@@ -5,8 +5,6 @@ import UI.Panels.BackButtonPanel;
 import UI.Panels.SeparatorPanel;
 import UI.Panels.TitlePanel;
 import UI.ResultPanels.BalancePanel;
-import database.Person_database;
-
 import javax.swing.*;
 import java.awt.*;
 

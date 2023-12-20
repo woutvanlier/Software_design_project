@@ -73,12 +73,13 @@ public class Split_unevenly extends Abstract_decorator {
         }
         return owed;
     }
-    public void setPricePerson(String name, double price){
-            prices.put(name,price);
-    }
 
-    public void setPrices(HashMap<String, Double> prices) {
-        this.prices = prices;
+    @Override
+    public double showOwedToHolder() {
+        double owed = 0;
+        for (Map.Entry<String, Double> entry : prices.entrySet()){
+            owed += entry.getValue();
+        }
+        return owed;
     }
-
 }

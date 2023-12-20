@@ -48,25 +48,18 @@ public abstract class Abstract_decorator implements Abstract_ticket
     public void setTicketName(String name){
         this.ticket.setTicketName(name);
     }
-    public void setTypeOfTicket(String typeOfTicket){
-        this.ticket.setTypeOfTicket(typeOfTicket);
-    }
-
     public String getTypeOfTicket(){
         return this.ticket.getTypeOfTicket();
+    }
+    public void setTypeOfTicket(String typeOfTicket){
+        this.ticket.setTypeOfTicket(typeOfTicket);
     }
 
     @Override
     public void setPayed(String name) {
         HavePayed.replace(name,true);
     }
-
-    public HashMap<String, Boolean> getHavePayed() {
-        return HavePayed;
-    }
-    public void printHavePayed(){
-        System.out.println(HavePayed.toString());
-    }
     public abstract double calcOwedToHolder();
+    public abstract double showOwedToHolder();
 
 }
