@@ -22,20 +22,25 @@ public class AddTicketButtonPanel extends JPanel
         JButton button = new JButton("ADD TICKET");
         button.addActionListener(e ->
         {
-            switch (ticketPanel.Split){
-                case "even" :
-                    newTicket = TicketFactory.createTicket_even(ticketView.getTicketName(), ticketView.getPersonPaid(), ticketView.getPricePaid(),ticketView.getDatePaid(),ticketView.getTicketCat());
-                    Ticket_database.getInstance().addTicket(newTicket);
-                    if(!Objects.equals(loginview.getLoginName(),ticketView.getPersonPaid())){
-                    logPanel.addElement(newTicket, loginview.getLoginPerson(),frameManager);}
-                    frameManager.setContentPane(homeView);
-                    break;
-                case "uneven" :
-                    frameManager.setContentPane(new SplitUnevenView(frameManager,loginview,ticketPanel,logPanel,ticketView, homeView));
-                    break;
-            }
-            //Ticket newTicket = new Ticket(ticketView.getTicketName(), Double.parseDouble(ticketView.getPricePaid()), ticketView.getPersonPaid(), ticketView.getTicketCat()); // via factory
+            ticketPanel.SetErrorToFalse();
+                if(ticketPanel.getTicketNameField().getText().equals("") || ticketPanel.getPriceNameField().getText().equals("")  || ticketPanel.getDatePicker().getModel().getValue() == null){
+                    ticketPanel.SetErrorToTrue();
+                    ticketPanel.getTicketNameField().setText("");
+                    ticketPanel.getPriceNameField().setText("");
+                }
+                else{
+                    switch (ticketPanel.Split){
+                        case "even" :
+                            newTicket = TicketFactory.createTicket_even(ticketView.getTicketName(), ticketView.getPersonPaid(), ticketView.getPricePaid(),ticketView.getDatePaid(),ticketView.getTicketCat());
+                            logPanel.addElement(newTicket, loginview.getLoginPerson(),frameManager);
+                            frameManager.setContentPane(homeView);
+                            break;
+                        case "uneven" :
+                            frameManager.setContentPane(new SplitUnevenView(frameManager,loginview,ticketPanel,logPanel,ticketView, homeView));
+                            break;
+            }}
             frameManager.revalidate();
+            //Ticket newTicket = new Ticket(ticketView.getTicketName(), Double.parseDouble(ticketView.getPricePaid()), ticketView.getPersonPaid(), ticketView.getTicketCat()); // via factory
         });
         this.add(button);
     }

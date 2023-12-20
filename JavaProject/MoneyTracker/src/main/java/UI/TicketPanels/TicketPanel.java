@@ -23,6 +23,8 @@ public class TicketPanel extends JPanel
 
     JDatePickerImpl datePicker;
 
+    JLabel Error;
+
     String Split;
     public TicketPanel(Person_database p_db)
     {
@@ -138,6 +140,14 @@ public class TicketPanel extends JPanel
         uneven.addActionListener(e -> {
             Split = "uneven";
             });
+        this.Error = new JLabel("There are empty fields!");
+        Error.setForeground(new Color(120,30,30));
+        Error.setBackground(new Color(30,30,30));
+        Error.setOpaque(false);
+        Error.setVisible(false);
+        c.gridx = 0;
+        c.gridy = c.gridy+1;
+        this.add(Error,c);
     }
 
     public JTextField getTicketNameField() {
@@ -164,5 +174,12 @@ public class TicketPanel extends JPanel
 
     public JDatePickerImpl getDatePicker() {
         return datePicker;
+    }
+
+    public void SetErrorToTrue(){
+        Error.setVisible(true);
+    }
+    public void SetErrorToFalse(){
+        Error.setVisible(false);
     }
 }

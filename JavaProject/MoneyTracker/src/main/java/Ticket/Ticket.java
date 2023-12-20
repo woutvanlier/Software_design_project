@@ -39,6 +39,11 @@ public class Ticket implements Abstract_ticket {
         return 0;
     }
 
+    @Override
+    public double showOwedToHolder() {
+        return 0;
+    }
+
     public String getTypeOfTicket() {
         return typeOfTicket;
     }

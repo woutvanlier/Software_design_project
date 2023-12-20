@@ -86,7 +86,6 @@ public class SplitUnevenView extends JPanel {
             }else{
             Error.setVisible(false);
             Abstract_ticket newTicket = TicketFactory.createTicket_unevenly_withMap(ticketView.getTicketName(), ticketView.getPersonPaid(), ticketView.getPricePaid(), ticketView.getDatePaid(), ticketView.getTicketCat(),PriceMap);
-            Ticket_database.getInstance().addTicket(newTicket);
             logPanel.addElement(newTicket, loginView.getLoginPerson(),frameManager);
             frameManager.setContentPane(homeView);
             frameManager.revalidate();}

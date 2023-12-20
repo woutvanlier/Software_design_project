@@ -30,11 +30,6 @@ public class Main
         Person person3 = PersonFactory.createPerson("Wout");
         Person person4 = PersonFactory.createPerson("Tomas");
 
-        personDB.addPerson(person1);
-        personDB.addPerson(person2);
-        personDB.addPerson(person3);
-        personDB.addPerson(person4);
-
         System.out.println(personDB);
 
         Ticket_database ticketDB = Ticket_database.getInstance();
@@ -55,13 +50,6 @@ public class Main
         System.out.println(Person_database.getInstance().getAmountOfPersons());
 
         //ticket_even.showOwed("Eliott");
-
-
-
-        ticketDB.addTicket(ticket1);
-        ticketDB.addTicket(ticket2);
-        ticketDB.addTicket(ticket3);
-        ticketDB.addTicket(ticket4);
 
         System.out.println(ticketDB);
 

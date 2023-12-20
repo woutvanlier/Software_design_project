@@ -23,6 +23,11 @@ public class Split_evenly extends Abstract_decorator {
         return owed;
     }
 
+    @Override
+    public double showOwedToHolder() {
+        return this.getPrice() - PricePerPerson;
+    }
+
     public double calculatePricePerPerson(){
         PricePerPerson = (super.getPrice()/Person_database.getInstance().getAmountOfPersons());
         return PricePerPerson;

@@ -45,13 +45,16 @@ public class LogElementPanel extends JPanel
         String ticketholder;
         String owedOrborrowed;
         Color borrowedOrPaidC;
+        double price;
         if(Objects.equals(ticket.getTicketHolder(),person.getFullName())){
             ticketholder = "You";
             owedOrborrowed = "You lent";
+            price = ticket.showOwedToHolder();
             borrowedOrPaidC = new Color(120,30,30);
         }else {
             ticketholder = ticket.getTicketHolder();
             owedOrborrowed = "You owe";
+            price = ticket.showOwed(person.getFullName());
             borrowedOrPaidC = new Color(30,120,30);
         }
         JLabel personPaid = new JLabel(ticketholder + " paid €" + ticket.getPrice());
@@ -80,7 +83,7 @@ public class LogElementPanel extends JPanel
         //endregion
         this.add(borrowedOrPaid, c);
         DecimalFormat df = new DecimalFormat("0.00");
-        JLabel priceLabel = new JLabel(df.format(ticket.showOwed(person.getFullName())));
+        JLabel priceLabel = new JLabel(df.format(price));
         font = new Font(priceLabel.getFont().toString(), Font.BOLD,12);
         priceLabel.setFont(font);
         //region >> Constraints

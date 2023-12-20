@@ -72,7 +72,6 @@ public class TicketView extends JPanel
         this.add(backButton, c);
 
 
-
     }
 
     public String getTicketName()

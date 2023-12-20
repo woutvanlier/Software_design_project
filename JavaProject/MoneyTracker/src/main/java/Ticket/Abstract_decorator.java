@@ -68,5 +68,6 @@ public abstract class Abstract_decorator implements Abstract_ticket
         System.out.println(HavePayed.toString());
     }
     public abstract double calcOwedToHolder();
+    public abstract double showOwedToHolder();
 
 }
