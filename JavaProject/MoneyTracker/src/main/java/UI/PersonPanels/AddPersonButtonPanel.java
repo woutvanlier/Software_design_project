@@ -2,14 +2,9 @@ package UI.PersonPanels;
 
 import Person.Person;
 import Person.PersonFactory;
-import UI.FrameManager;
-import UI.Views.HomeView;
 import UI.Views.PersonView;
-import UI.Views.ResultView;
 import database.Person_database;
-
 import javax.swing.*;
-import javax.xml.transform.Result;
 import  UI.ButtonSound;
 
 public class AddPersonButtonPanel extends JPanel

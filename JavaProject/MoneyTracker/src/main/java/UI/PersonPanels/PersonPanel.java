@@ -2,7 +2,6 @@ package UI.PersonPanels;
 
 import Person.Person;
 import UI.FrameManager;
-import database.Person_database;
 
 import javax.swing.*;
 import java.awt.*;

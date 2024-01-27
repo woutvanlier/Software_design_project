@@ -1,13 +1,12 @@
 package UI.Views;
 
 import UI.FrameManager;
-import UI.HomePanels.*;
 import UI.Panels.LoginPanel;
-import UI.Panels.SeparatorPanel;
+
 import UI.Panels.TitlePanel;
 import database.Person_database;
 import Person.Person;
-import database.Ticket_database;
+
 
 import javax.swing.*;
 import java.awt.*;

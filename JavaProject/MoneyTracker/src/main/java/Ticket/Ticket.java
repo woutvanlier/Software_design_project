@@ -1,12 +1,8 @@
 package Ticket;
 
-import Person.Person;
-import database.Ticket_database;
-
 public class Ticket implements Abstract_ticket {
 
     private String TicketHolder;
-
     private String typeOfTicket;
 
     private String TicketName;

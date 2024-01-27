@@ -1,22 +1,22 @@
 package UI.TicketPanels;
 
 import Ticket.TicketFactory;
-import Ticket.Ticket;
 import Ticket.Abstract_ticket;
+import UI.ButtonSound;
 import UI.FrameManager;
 import UI.HomePanels.LogPanel;
 import UI.Views.HomeView;
 import UI.Views.LoginView;
 import UI.Views.SplitUnevenView;
 import UI.Views.TicketView;
-import database.Ticket_database;
 
 import javax.swing.*;
-import java.util.Objects;
+
 
 public class AddTicketButtonPanel extends JPanel
 {
     private Abstract_ticket newTicket;
+    ButtonSound buttonSound = new ButtonSound();
     public AddTicketButtonPanel(TicketView ticketView, LogPanel logPanel, FrameManager frameManager, HomeView homeView, TicketPanel ticketPanel, LoginView loginview)
     {
         JButton button = new JButton("ADD TICKET");
@@ -27,6 +27,7 @@ public class AddTicketButtonPanel extends JPanel
                     ticketPanel.SetErrorToTrue();
                     ticketPanel.getTicketNameField().setText("");
                     ticketPanel.getPriceNameField().setText("");
+                    buttonSound.playSound("src/main/java/UI/error.wav");
                 }
                 else{
                     switch (ticketPanel.Split){

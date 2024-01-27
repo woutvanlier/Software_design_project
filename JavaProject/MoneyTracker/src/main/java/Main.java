@@ -1,14 +1,10 @@
 import Person.Person;
 import Person.PersonFactory;
-import Ticket.Ticket;
 import UI.FrameManager;
 import database.Person_database;
 import database.Ticket_database;
-import Ticket.Split_evenly;
-import Ticket.Split_unevenly;
 import Ticket.TicketFactory;
 import Ticket.Abstract_ticket;
-import java.awt.*;
 
 public class Main
 {
@@ -20,10 +16,8 @@ public class Main
 
     public void run()
     {
-        Person_database personDB = Person_database.getInstance();
-        //PersonFactory personFactory = new PersonFactory();
 
-        // Because person is protected, we need to make persons via the factory!
+        Person_database personDB = Person_database.getInstance();
 
         Person person1 = PersonFactory.createPerson("Eliott");
         Person person2 = PersonFactory.createPerson("Eliott");
@@ -36,6 +30,8 @@ public class Main
 
         ticketDB.changeNameOnTicket("Tomas","Thomas",personDB);
 
+
+
         System.out.println(ticketDB);
 
         Abstract_ticket ticket1 = TicketFactory.createTicket_even("Restaurant1","Eliott", 45.2,"10/02/2023", "Restaurant");
@@ -44,13 +40,7 @@ public class Main
         Abstract_ticket ticket4 = TicketFactory.createTicket_even("Airplane1","Eliott", 845,"20/02/2023", "Airplane");
 
 
-        //Split_evenly ticket_even = new Split_evenly(ticket1);
-        //Split_unevenly ticket_uneven = new Split_unevenly(ticket3);
-
         System.out.println(Person_database.getInstance().getAmountOfPersons());
-
-        //ticket_even.showOwed("Eliott");
-
         System.out.println(ticketDB);
 
         FrameManager frameManager = new FrameManager();

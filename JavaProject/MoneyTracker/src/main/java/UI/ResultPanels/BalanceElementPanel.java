@@ -1,7 +1,6 @@
 package UI.ResultPanels;
 
 import Person.Person;
-import UI.Views.LoginView;
 import database.Person_database;
 
 import javax.swing.*;

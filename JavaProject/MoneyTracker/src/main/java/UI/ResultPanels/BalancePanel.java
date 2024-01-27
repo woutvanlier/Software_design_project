@@ -3,8 +3,6 @@ package UI.ResultPanels;
 import Person.Person;
 import UI.FrameManager;
 import UI.Views.LoginView;
-import database.Person_database;
-
 import javax.swing.*;
 import java.awt.*;
 

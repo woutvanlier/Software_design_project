@@ -4,13 +4,9 @@ import Ticket.Abstract_ticket;
 import Ticket.TicketFactory;
 import UI.FrameManager;
 import UI.HomePanels.*;
-import UI.Panels.SeparatorPanel;
 import UI.Panels.TitlePanel;
 import UI.TicketPanels.TicketPanel;
-import database.Person_database;
 import Person.Person;
-import database.Ticket_database;
-
 import javax.swing.*;
 import java.awt.*;
 import java.util.HashMap;

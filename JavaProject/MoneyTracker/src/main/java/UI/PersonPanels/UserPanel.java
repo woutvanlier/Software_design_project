@@ -1,10 +1,7 @@
 package UI.PersonPanels;
-
-import UI.FrameManager;
-
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionListener;
+
 
 public class UserPanel extends JPanel
 {

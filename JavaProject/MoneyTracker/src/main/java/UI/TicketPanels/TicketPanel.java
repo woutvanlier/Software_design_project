@@ -1,17 +1,13 @@
 package UI.TicketPanels;
 
-import Person.Person;
-import UI.Panels.TitlePanel;
 import database.Person_database;
 import org.jdatepicker.impl.JDatePanelImpl;
 import org.jdatepicker.impl.JDatePickerImpl;
 import org.jdatepicker.impl.UtilDateModel;
 
 import javax.swing.*;
-import javax.swing.text.DateFormatter;
+
 import java.awt.*;
-import java.util.HashMap;
-import java.util.Objects;
 import java.util.Properties;
 
 public class TicketPanel extends JPanel
@@ -140,6 +136,7 @@ public class TicketPanel extends JPanel
         uneven.addActionListener(e -> {
             Split = "uneven";
             });
+
         this.Error = new JLabel("There are empty fields!");
         Error.setForeground(new Color(120,30,30));
         Error.setBackground(new Color(30,30,30));
@@ -178,6 +175,7 @@ public class TicketPanel extends JPanel
 
     public void SetErrorToTrue(){
         Error.setVisible(true);
+
     }
     public void SetErrorToFalse(){
         Error.setVisible(false);

@@ -1,5 +1,4 @@
 package Ticket;
-import Person.Person;
 import database.Person_database;
 
 // Everybody should pay the same: ticket is split evenly
