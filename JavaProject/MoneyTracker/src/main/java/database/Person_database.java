@@ -6,6 +6,7 @@ import Ticket.Ticket;
 import java.beans.PropertyChangeEvent;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Person_database extends Database
 {
@@ -49,7 +50,7 @@ public class Person_database extends Database
         Person personToBeRemoved = null;
         for(Person person : db)
         {
-            if(personName == person.getFullName())
+            if(Objects.equals(personName, person.getFullName()))
             {
                 personToBeRemoved = person;
             }
@@ -83,6 +84,7 @@ public class Person_database extends Database
         if(findInDatabase(oldName) != null)
         {
             Person person = findInDatabase(oldName);
+            assert person != null;
             person.changeFullName(newName);
 
         }
@@ -93,7 +95,7 @@ public class Person_database extends Database
     {
         for(Person person : db)
         {
-            if(name == person.getFullName())
+            if(Objects.equals(name, person.getFullName()))
             {
                 return person;
             }

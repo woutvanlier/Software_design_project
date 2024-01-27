@@ -35,7 +35,7 @@ public class Main
         System.out.println(ticketDB);
 
         Abstract_ticket ticket1 = TicketFactory.createTicket_even("Restaurant1","Eliott", 45.2,"10/02/2023", "Restaurant");
-        Abstract_ticket ticket2 = TicketFactory.createTicket_unevenly("Restaurant2","Wout", 45.2,"11/02/2023", "Restaurant");
+        Abstract_ticket ticket2 = TicketFactory.createTicket_even("Restaurant2","Wout", 45.2,"11/02/2023", "Restaurant");
         Abstract_ticket ticket3 = TicketFactory.createTicket_even("Concert1","Thomas", 300.25,"18/02/2023", "Concert");
         Abstract_ticket ticket4 = TicketFactory.createTicket_even("Airplane1","Eliott", 845,"20/02/2023", "Airplane");
 
