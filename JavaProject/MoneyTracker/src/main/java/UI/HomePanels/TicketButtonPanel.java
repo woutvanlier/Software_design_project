@@ -34,7 +34,7 @@ public class TicketButtonPanel extends JPanel
             TicketView ticketView = new TicketView(logPanel, homeView, frameManager, loginview);
             frameManager.setContentPane(ticketView);
             frameManager.revalidate();
-            buttonSound.playSound("src/main/java/UI/tap.wav");
+            buttonSound.playSound("src/main/java/UI/Resources/tap.wav");
         });
 
         this.add(button);

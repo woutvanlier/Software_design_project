@@ -47,7 +47,7 @@ public class LoginPanel extends JPanel
             HomeView homeView = new HomeView(frameManager, frameManager.getPersonDatabase(), frameManager.getTicketDatabase(),loginView);
             frameManager.setContentPane(homeView);
             frameManager.revalidate();
-            buttonSound.playSound("src/main/java/UI/tap.wav");
+            buttonSound.playSound("src/main/java/UI/Resources/tap.wav");
 
         });
     }

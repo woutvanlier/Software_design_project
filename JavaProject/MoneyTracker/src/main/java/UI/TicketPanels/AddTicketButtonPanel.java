@@ -27,7 +27,7 @@ public class AddTicketButtonPanel extends JPanel
                     ticketPanel.SetErrorToTrue();
                     ticketPanel.getTicketNameField().setText("");
                     ticketPanel.getPriceNameField().setText("");
-                    buttonSound.playSound("src/main/java/UI/error.wav");
+                    buttonSound.playSound("src/main/java/UI/Resources/error.wav");
                 }
                 else{
                     switch (ticketPanel.Split){

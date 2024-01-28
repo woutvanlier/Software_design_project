@@ -35,7 +35,7 @@ public class PersonButtonPanel extends JPanel
             PersonView personView = new PersonView(homeView, frameManager, frameManager.getPersonDatabase());
             frameManager.setContentPane(personView);
             frameManager.revalidate();
-            buttonSound.playSound("src/main/java/UI/tap.wav");
+            buttonSound.playSound("src/main/java/UI/Resources/tap.wav");
         });
         this.add(button);
     }

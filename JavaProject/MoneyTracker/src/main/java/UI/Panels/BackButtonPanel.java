@@ -18,7 +18,7 @@ public class BackButtonPanel extends JPanel
         {
             frameManager.setContentPane(homeView);
             frameManager.revalidate();
-            buttonSound.playSound("src/main/java/UI/button.wav");
+            buttonSound.playSound("src/main/java/UI/Resources/button.wav");
         });
 
 

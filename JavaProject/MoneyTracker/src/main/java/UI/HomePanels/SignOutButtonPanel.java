@@ -33,7 +33,7 @@ public class SignOutButtonPanel extends JPanel
             loginView.ResetLogin();
             frameManager.setContentPane(loginView);
             frameManager.revalidate();
-            buttonSound.playSound("src/main/java/UI/dong.wav");
+            buttonSound.playSound("src/main/java/UI/Resources/dong.wav");
         });
 
         this.add(button);

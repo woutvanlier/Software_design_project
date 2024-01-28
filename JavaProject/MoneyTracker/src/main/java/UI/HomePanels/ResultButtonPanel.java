@@ -35,7 +35,7 @@ public class ResultButtonPanel extends JPanel
             ResultView resultView = new ResultView(frameManager, homeView, loginView);
             frameManager.setContentPane(resultView);
             frameManager.revalidate();
-            buttonSound.playSound("src/main/java/UI/tap.wav");
+            buttonSound.playSound("src/main/java/UI/Resources/tap.wav");
         });
 
         this.add(button);

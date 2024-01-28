@@ -31,7 +31,7 @@ public class AddPersonButtonPanel extends JPanel
             else
             {
                 personView.setError(true);
-                buttonSound.playSound("src/main/java/UI/error.wav");
+                buttonSound.playSound("src/main/java/UI/Resources/error.wav");
 
             }
         });
